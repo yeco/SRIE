@@ -1,16 +1,52 @@
 export default (req, res) => {
   res.status(200).json([
     {
+      key: "bh",
+      title: "Belice",
+      img:
+        "/img/home/bandera-belice.png"
+    },
+    {
       key: "cr",
       title: "Costa Rica",
       img:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Costa_Rica_%28state%29.svg/125px-Flag_of_Costa_Rica_%28state%29.svg.png"
+        "/img/home/bandera-costa_rica.png"
     },
     {
       key: "es",
       title: "El Salvador",
       img:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_El_Salvador.svg/150px-Flag_of_El_Salvador.svg.png"
-    }
+        "/img/home/bandera-el_salvador.png"
+    },
+    {
+      key: "gt",
+      title: "Guatemala",
+      img:
+        "/img/home/bandera-guatemala.png"
+    },
+    {
+      key: "ho",
+      title: "Honduras",
+      img:
+        "/img/home/bandera-honduras.png"
+    },
+    {
+      key: "nu",
+      title: "Nicaragua",
+      img:
+        "/img/home/bandera-nicaragua.png"
+    },
+    {
+      key: "pm",
+      title: "Panamá",
+      img:
+        "/img/home/bandera-nicaragua.png"
+    },
+    {
+      key: "dr",
+      title: "Rep. Dominicana",
+      img:
+        "/img/home/bandera-rep_dominicana.png"
+    },
   ]);
 };

@@ -5,5 +5,6 @@ export default css.global`
   body {
     margin: 0;
     color: ${theme.colors.font};
+    font-family: 'Roboto', sans-serif;
   }
 `;
