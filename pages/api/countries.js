@@ -40,7 +40,7 @@ export default (req, res) => {
       key: "pm",
       title: "Panamá",
       img:
-        "/img/home/bandera-nicaragua.png"
+        "/img/home/bandera-panama.png"
     },
     {
       key: "dr",

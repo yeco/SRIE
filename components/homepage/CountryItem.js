@@ -2,8 +2,8 @@ import theme from "../../styles/theme";
 import Link from "next/link";
 
 const CountryItem = props => (
-  <div className="country-item">
-    <Link href="/country/[id]" as={`country/${props.country.id}`}>
+  <div className="country-item col-6 col-md-3">
+    <Link href={`country/${props.country.key}`}>
       <a title={props.country.title}>
         <img src={props.country.img} />
         <span className="cy-link">{props.country.title}</span>
@@ -32,6 +32,7 @@ const CountryItem = props => (
             text-transform: uppercase;
             font-family: 'Raleway', sans-serif;
             font-weight: bold;
+            white-space: nowrap;
           }
           a:hover span.cy-link{
             background: #0071BC;

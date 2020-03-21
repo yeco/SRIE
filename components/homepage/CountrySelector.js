@@ -2,7 +2,7 @@ import theme from "../../styles/theme";
 import CountryItem from "./CountryItem";
 
 const CountrySelector = props => (
-  <div className="country-selector">
+  <div className="country-selector row">
     {props.countries.map(country => (
       <CountryItem country={country} />
     ))}
@@ -12,11 +12,7 @@ const CountrySelector = props => (
         flex-direction: row;
       } */}
       .country-selector{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
+        
         }
     `}</style>
   </div>
