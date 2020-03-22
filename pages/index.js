@@ -2,28 +2,32 @@ import fetch from "isomorphic-unfetch";
 import InfoSlider from "../components/homepage/InfoSlider";
 import CountrySelector from "../components/homepage/CountrySelector";
 import Header from "./../components/layout/Header";
+import BannerOds from "./../components/homepage/BannerOds"
 
 function fetcher(url) {
   return fetch(url).then(r => r.json());
 }
 
 const Home = props => (
-  <div className="home">
-    <Header path={props.pa}/>
-      <div className="row justify-content-md-center">
+  <>
+    <div className="home">
+      <Header path={props.pa}/>
+        <div className="row justify-content-md-center">
+          <div className="col-sm-8">
+            <InfoSlider />
+            <CountrySelector countries={props.countries} />
+          </div>
+        </div>
+    </div>
+    <div className="row justify-content-md-center slider-box">
       <div className="col-sm-8">
-        <InfoSlider />
-        <CountrySelector countries={props.countries} />
+        <BannerOds/>
       </div>
     </div>
     <style jsx>{`
-          .home{
-            background: #0071BC;
-            background-image: url(/img/home/bck.jpg);
-            background-repeat: no-repeat;
-          }
-        `}</style>
-  </div>
+    
+    `}</style>
+  </>
 );
 
 Home.getInitialProps = async function({pathname}) {

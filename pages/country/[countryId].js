@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Header from "./../../components/layout/Header";
+import Header from "../../components/layout/Header";
 
 export default function Country() {
   const router = useRouter();
@@ -8,7 +8,7 @@ export default function Country() {
   return (
     <div>
       <Header/>
-      <p>Country content for {router.query.id}.</p>
+      <p>Country content for {router.query.countryId}.</p>
       <Link href="/">
         <a>Back to home</a>
       </Link>

@@ -27,23 +27,13 @@ const InfoSlider = () => (
   </div>
   </div>
   <style jsx>{`
-      .info-slider > .row {
-        height: 335px;
-      }
+      
       h3{
         color: white;
         text-align: center;
         font-size: 1.3em;
       }
-      .carousel-control-prev {
-        left: -25%;
-      }
-      .carousel-control-next {
-        right: -25%;
-      }
-      .carousel-indicators {
-          bottom: -100px;
-      }
+      
     `}</style>
   </div>
 );

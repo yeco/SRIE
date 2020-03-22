@@ -6,10 +6,10 @@ const Header = props => (
   <div className="header">    
     <div className="container">
         <div className="row justify-content-between">
-        <div className="col-3">
+        <div className="col-12 col-sm-3">
           <Logo path={props.path}/>
         </div>
-        <div className="col-auto">
+        <div className="col-12 col-sm-auto">
           <NavBar/>
         </div>
       </div>

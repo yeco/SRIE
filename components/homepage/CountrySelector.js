@@ -11,9 +11,9 @@ const CountrySelector = props => (
         display: flex;
         flex-direction: row;
       } */}
-      .country-selector{
-        
-        }
+      .country-selector > div{
+        padding: 0;
+      }
     `}</style>
   </div>
 );
