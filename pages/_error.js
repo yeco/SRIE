@@ -1,10 +1,23 @@
+import Header from "./../components/layout/Header";
+import Link from "next/link";
+
 function Error({ statusCode }) {
     return (
-      <p>
-        {statusCode
-          ? `An error ${statusCode} occurred on server`
-          : 'An error occurred on client'}
-      </p>
+    <div className="container">
+        <Header/>
+        <h3>Contenido no encontrado.</h3>
+        <p>Volver al 
+            <Link href="/">
+                <a> inicio</a>
+            </Link>
+            .
+        </p>
+        <p className="small">
+            {statusCode
+            ? `Error: ${statusCode}`
+            : 'An error occurred on client'}
+        </p> 
+    </div>
     )
   }
   
