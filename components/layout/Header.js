@@ -1,25 +1,24 @@
 import theme from "../../styles/theme";
 import NavBar from "../layout/NavBar";
 import Logo from "../layout/Logo";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Header = props => (
-  <div className="header">    
-    <div className="container">
-        <div className="row justify-content-between">
-        <div className="col-12 col-sm-3">
-          <Logo path={props.path}/>
-        </div>
-        <div className="col-12 col-sm-auto">
-          <NavBar/>
-        </div>
-      </div>
-    </div>
-      
-      
-    
+  <div className="header">
+    <Container>
+      <Row className="justify-content-md-between">
+        <Col sm={3}>
+          <Logo path={props.path} />
+        </Col>
+        <Col sm="auto">
+          <NavBar />
+        </Col>
+      </Row>
+    </Container>
+
     <style jsx>{`
       .header {
-        border-bottom: 2px solid rgba(255, 255, 255, .3);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
         padding-top: 10px;
       }
     `}</style>

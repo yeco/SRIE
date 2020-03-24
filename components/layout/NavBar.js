@@ -1,39 +1,41 @@
 import Link from "next/link";
-import {nav} from './../../pages/api/navbar'
-import Dropdown from './../layout/Dropdown'
+import { nav } from "./../../pages/api/navbar";
+import Dropdown from "./../layout/Dropdown";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 export default class NavBar extends React.Component {
-    
     render() {
-    return (        
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="navbar-nav">
+        console.log(nav)
+        return (
+        <>
+            <Navbar expand="lg">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
                 {
                     nav.map(item=>(
-                        <li className="nav-item dropdown">
-                        <Link href={item.href}>
-                            <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {item.label}
-                            </a>
-                        </Link>
-                        {
-                            item.items.length > 0 &&
-                                <Dropdown items={item.items} key={item}/>
-                        }
-                    </li>
+                        <Dropdown items={item} />
                     ))
                 }
-                </ul>
-            </div>
-            </nav>
-            <style jsx>{`
-            `}</style>
-        </div>
-    )}
-
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#link">Link</Nav.Link>
+                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                    Another action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                    Something
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action/3.4">
+                    Separated link
+                    </NavDropdown.Item>
+                </NavDropdown>
+                </Nav>
+            </Navbar.Collapse>
+            </Navbar>
+        </>
+        );
+    } 
 }

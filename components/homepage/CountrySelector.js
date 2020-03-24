@@ -1,21 +1,22 @@
 import theme from "../../styles/theme";
 import CountryItem from "./CountryItem";
+import { Row } from "react-bootstrap";
 
-const CountrySelector = props => (
-  <div className="country-selector row">
-    {props.countries.map(country => (
-      <CountryItem country={country} />
-    ))}
+export default function CountrySelector(props) {
+  
+  return (
+  <div className="country-selector">
+        
+        <Row>
+          {props.countries.map(country => (
+            <CountryItem country={country} />
+          ))}
+        </Row>
+        
+
     <style jsx>{`
-      {/* .country-selector {
-        display: flex;
-        flex-direction: row;
-      } */}
-      .country-selector > div{
-        padding: 0;
-      }
+      
     `}</style>
   </div>
-);
+)}
 
-export default CountrySelector;

@@ -1,6 +1,7 @@
 import React from "react";
 import App from "next/app";
 import Layout from "../components/layout/Layout";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import globalStyles from "../styles/global.js";
 

@@ -17,7 +17,7 @@ export default css.global`
     height: 435px;
   }
   .carousel-indicators {
-    bottom: -50px;
+    bottom: -15px;
   }
   @media (max-width: 576px) { 
     .country-selector a{
@@ -48,11 +48,8 @@ export default css.global`
         background-image: url(/img/home/bck.jpg);
         background-repeat: no-repeat;
       }
-      .info-slider > .row {
-        height: 335px;
-      }
       .carousel-indicators {
-        bottom: -100px;
+        bottom: 15px;
       }
   }
   /* fin768 */
