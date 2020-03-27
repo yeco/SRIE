@@ -48,8 +48,9 @@ const Footer = () => (
         display: flex;
         justify-content: space-between;
       }
-      
-      
+      .copyright p{
+        background-color: #006A9B;
+      }
     `}</style>
     <style jsx>{`
     .ico-fb,.ico-tw{
@@ -85,9 +86,7 @@ const Footer = () => (
         background-size: 60%;
         background-color: #55ACEE;
       }
-      p{
-        color: #006A9B;
-      }
+      
     `}</style>
   </>
 );
