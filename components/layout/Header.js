@@ -1,5 +1,6 @@
 import theme from "../../styles/theme";
 import NavBar from "../layout/NavBar";
+// import Navigation from "../layout/Navigation";
 import Logo from "../layout/Logo";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -11,7 +12,8 @@ const Header = props => (
           <Logo path={props.path} />
         </Col>
         <Col sm="auto">
-          <NavBar />
+          <NavBar path={props.path}/>
+          {/* <Navigation /> */}
         </Col>
       </Row>
     </Container>

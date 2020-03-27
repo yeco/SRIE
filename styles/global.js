@@ -49,7 +49,7 @@ export default css.global`
         background-repeat: no-repeat;
       }
       .carousel-indicators {
-        bottom: 15px;
+        bottom: 30px;
       }
   }
   /* fin768 */

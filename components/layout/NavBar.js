@@ -1,41 +1,75 @@
 import Link from "next/link";
 import { nav } from "./../../pages/api/navbar";
-import Dropdown from "./../layout/Dropdown";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-
+import { Navbar,Nav,NavDropdown } from "react-bootstrap";
 export default class NavBar extends React.Component {
-    render() {
-        console.log(nav)
-        return (
-        <>
-            <Navbar expand="lg">
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                {
-                    nav.map(item=>(
-                        <Dropdown items={item} />
-                    ))
-                }
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#link">Link</Nav.Link>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                    Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                    Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                    Separated link
-                    </NavDropdown.Item>
-                </NavDropdown>
-                </Nav>
-            </Navbar.Collapse>
-            </Navbar>
-        </>
-        );
-    } 
+  render() {
+    const {path} = this.props
+    
+    return (
+        
+      <>
+      {/* {path} */}
+        <Navbar expand="lg">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className={path == "/" ? "CName" : ""}>
+            <Nav className="mr-auto">
+            {
+            nav.map(item => {
+                return (
+                <>
+                <NavDropdown title={item.label} id="basic-nav-dropdown">
+                    {item.items.map(item2 => {
+                        return (
+                            <NavDropdown.Item href={item2.href} className={path == item2.href ? "CName-ative" : ""}>{item2.label}</NavDropdown.Item>             
+                            )
+                        })
+                    }
+                </NavDropdown> 
+                </>
+                )
+            })
+            }
+            </Nav>
+
+          </Navbar.Collapse>
+        </Navbar>
+        <style type="text/css">{`
+            
+            .nav-link{
+                font-family: 'Raleway', sans-serif;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #1D2D49 !important;
+                
+            }
+            .CName .nav-link{
+                color: white !important;
+                
+            }
+            .dropdown-menu{
+                background-color: #1D2D49;
+            }
+            .dropdown-item{
+                color: white;
+            }
+            .dropdown-item:focus, .dropdown-item:hover {
+                color: #16181b;
+                text-decoration: none;
+                background-color: #0071BC;
+                color: white;
+            }
+            .nav-item > .nav-link {
+                border-bottom: 2px solid transparent;
+            }
+            .show.dropdown.nav-item > a{
+                border-bottom: 2px solid #FBB03B;
+            }
+            a.CName-ative.dropdown-item{
+                text-decoration: underline #FBB03B;
+            }
+            
+        `}</style>
+      </>
+    );
+  }
 }

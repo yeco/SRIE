@@ -3,6 +3,7 @@ import { Container,Row,Col,Image } from "react-bootstrap";
 import Link from "next/link";
 
 const Footer = () => (
+  <>
   <Col className="footer">
     <Container>
       <Row>
@@ -18,12 +19,12 @@ const Footer = () => (
           </Col>
         </Col>
         <Col xs={12} sm={2}></Col>
-        <Col xs={12} sm={4}>
-          <a href="#" target="_blank"> 
+        <Col xs={12} sm={4} >
+          <a href="#" target="_blank" className="d-block pb-2"> 
             <img src="/img/home/CECC-SICA.png" alt="CECC-SICA"/>
           </a>
-          <br/>
-          <p className="small">Adipiscing elit, sed diam nonummy nibh euismod Tincidunt ut laoreet Dolore magna aliquam erat volutpat Sed diam nonummy nibh</p>
+          
+          <p className="small mb-2">Adipiscing elit, sed diam nonummy nibh euismod Tincidunt ut laoreet Dolore magna aliquam erat volutpat Sed diam nonummy nibh</p>
           <a href="#" target="_blank" className="ico-fb"> 
             Facebook
           </a>
@@ -32,12 +33,16 @@ const Footer = () => (
           </a>
         </Col>
       </Row>
+      
     </Container>
-
-    
-    <style type="text/css">{`
+  </Col>
+  <Row className="copyright">
+    <p className="text-white text-center w-100 font-italic"><small> Derechos reservados</small></p>
+  </Row>
+  <style type="text/css">{`
       .footer {
         background-color: #cccccc;
+        padding: 2em 0;
       }
       .imgfooter{
         display: flex;
@@ -51,15 +56,40 @@ const Footer = () => (
         font-size: 0;
         padding: 10px;
         background-repeat: no-repeat;
+        margin: 15px 5px 0 0;
+        padding: 15px;
+        border-radius: 50%;
+        text-align: center;
+        background-position: center; 
+        transition: 0.2s
       }
       .ico-fb{
-        background-image: url("/img/home/social-facebook-white.svg") 
+        background-image: url("/img/home/social-facebook-blue.svg");
+        border: 1px solid #3B5998;
+        background-size: 35%;
       }
       .ico-tw{
-        background-image: url("/img/home/social-twitter-white.svg") 
+        background-image: url("/img/home/social-twitter-blue.svg");
+        border: 1px solid #55ACEE;
+        background-size: 60%;
+      }
+      .ico-fb:hover{
+        background-image: url("/img/home/social-facebook-white.svg");
+        border: 1px solid #3B5998;
+        background-size: 35%;
+        background-color: #3B5998;
+      }
+      .ico-tw:hover{
+        background-image: url("/img/home/social-twitter-white.svg");
+        border: 1px solid #55ACEE;
+        background-size: 60%;
+        background-color: #55ACEE;
+      }
+      p{
+        color: #006A9B;
       }
     `}</style>
-  </Col>
+  </>
 );
 
 export default Footer;

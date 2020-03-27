@@ -16,7 +16,7 @@ export const nav = [
                 label: '¿Cómo usar el sistema?'
             },
             {
-                href: '#',
+                href: '/glosario',
                 label: 'Glosario'
             },
             {
@@ -28,8 +28,6 @@ export const nav = [
                 label: 'Equipo responsable'
             },
         ]
-        
-        
     },
     {
         label: 'Indicadores educativos',
