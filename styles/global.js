@@ -21,7 +21,7 @@ export default css.global`
   }
   .carousel-item .row{
       /*height:345px;*/
-      height:19em;
+      height:21em;
     }
   @media (max-width: 576px) { 
     .country-selector a{
