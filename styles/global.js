@@ -72,7 +72,7 @@ export default css.global`
   @media (min-width: 1600px){
     .carousel-item .row{
       /*height:345px;*/
-      height:22em;
+      height:23em;
     }
     .home {    
     background-size: 100%;
