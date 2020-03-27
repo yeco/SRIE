@@ -34,10 +34,6 @@ const InfoSlider = () => (
       text-align: center;
       font-size: 1.3em;
     }
-
-    .carousel-item .row{
-      height:345px;
-    }
     `}
     </style>
     {/* <style jsx>{`

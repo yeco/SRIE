@@ -19,6 +19,10 @@ export default css.global`
   .carousel-indicators {
     bottom: -15px;
   }
+  .carousel-item .row{
+      /*height:345px;*/
+      height:19em;
+    }
   @media (max-width: 576px) { 
     .country-selector a{
       font-size: 0.7em;
@@ -56,6 +60,7 @@ export default css.global`
 
   @media (min-width: 992px) {
     
+    
   }
   /* fin992 */
 
@@ -64,4 +69,13 @@ export default css.global`
 
   }
   /* fin1200 */
+  @media (min-width: 1600px){
+    .carousel-item .row{
+      /*height:345px;*/
+      height:22em;
+    }
+    .home {    
+    background-size: 100%;
+}
+  }
 `;
