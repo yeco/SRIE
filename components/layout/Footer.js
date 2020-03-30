@@ -36,9 +36,9 @@ const Footer = () => (
       
     </Container>
   </Col>
-  <Row className="copyright">
+  <Col className="copyright">
     <p className="text-white text-center w-100 font-italic"><small> Derechos reservados</small></p>
-  </Row>
+  </Col>
   <style type="text/css">{`
       .footer {
         background-color: #cccccc;
