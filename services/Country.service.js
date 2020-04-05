@@ -1,12 +1,12 @@
-import db from "../db/index";
+import massive from "../db";
 
 export default {
-  getByCode: code => {
-    return db.queryForObject("SELECT * FROM countries WHERE code = $1", [
-      code.toUpperCase()
-    ]);
+  getByCode: async code => {
+    const db = await massive();
+    return await db.countries.findOne({ code: code.toUpperCase() });
   },
-  getCountries: () => {
-    return db.query("SELECT * FROM countries", []);
+  getCountries: async () => {
+    const db = await massive();
+    return await db.countries.find({});
   }
 };
