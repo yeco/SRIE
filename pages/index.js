@@ -1,15 +1,18 @@
 import fetch from "isomorphic-unfetch";
 import InfoSlider from "../components/homepage/InfoSlider";
 import CountrySelector from "../components/homepage/CountrySelector";
+import { withTranslation } from "../i18n";
+import PropTypes from "prop-types";
 
 function fetcher(url) {
   return fetch(url).then(r => r.json());
 }
 
-const Home = props => (
+const Home = ({ countries, t }) => (
   <div className="home">
     <InfoSlider />
-    <CountrySelector countries={props.countries} />
+    <h4>{t("homepage.title")}</h4>
+    <CountrySelector countries={countries} />
   </div>
 );
 
@@ -18,8 +21,13 @@ Home.getInitialProps = async function() {
   const countries = await res.json();
 
   return {
+    namespacesRequired: ["homepage"],
     countries: countries
   };
 };
 
-export default Home;
+Home.propTypes = {
+  t: PropTypes.func.isRequired
+};
+
+export default withTranslation("homepage")(Home);

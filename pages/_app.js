@@ -1,6 +1,7 @@
 import React from "react";
 import App from "next/app";
 import Layout from "../components/layout/Layout";
+import { appWithTranslation } from "../i18n";
 
 import globalStyles from "../styles/global.js";
 
@@ -19,4 +20,4 @@ class SrieApp extends App {
   }
 }
 
-export default SrieApp;
+export default appWithTranslation(SrieApp);
