@@ -1,0 +1,9 @@
+DROP TABLE indicators_educational_levels;
+DROP TABLE indicators_pec_goals;
+DROP TABLE indicators_topics;
+DROP TABLE indicators_ods4_scales;
+DROP TABLE indicators;
+DROP TABLE topics;
+DROP TABLE educational_levels;
+DROP TABLE ods4_scales;
+DROP TABLE pec_goals;
