@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 
-import { Box } from '../components/layout/Box'
+import { Box, BoxIndicador } from '../components/layout/Box'
 import ButtonWithIcon from '../components/layout/ButtonWithIcon'
 
 import EducacionIcon from '../public/img/home/icon_datos_educ.svg'
@@ -42,6 +42,7 @@ export const Box3 = () => (
     color='naranja'
   />
 )
+
 export const Box4 = () => (
   <Box
     iconImg={DatoNinoIcon}
@@ -49,5 +50,21 @@ export const Box4 = () => (
     de la escuela'
     subtitle='10,00%'
     color='celeste'
+  />
+)
+export const Box5 = () => (
+  <BoxIndicador
+    title='Tasas de matrícula, por nivel'
+    prescolar='50,09%'
+    primaria='40,60%'
+    secundaria='50,00%'
+  />
+)
+export const Box6 = () => (
+  <BoxIndicador
+    title='Niñas, niños y adolescentes fuera'
+    prescolar='50,09%'
+    primaria='36,00%'
+    secundaria='50,00%'
   />
 )

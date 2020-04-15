@@ -33,9 +33,20 @@ const ContainerStyled = styled.div`
   width: 300px;
   min-height: 120px;
 `
+const ContainerIndicadorStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: ${gris1};
+  padding: 10px 20px;
+  width: 300px;
+  min-height: 120px;
+`
 const TextContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 `
 
@@ -76,7 +87,7 @@ const IconImgStyled = styled.img`
 
 const Title = styled.h3`
   width: 100%;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   margin-bottom: 5px;
@@ -104,7 +115,44 @@ const ColorSubtitle = styled.h3`
       ? rosa_2
       : 'black'};
 `
-
+const IndicadorContainer = styled.div`
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+  padding: 40px 8px;
+  width: 25%;
+  margin-right: 10px;
+  background-color: ${(props) =>
+    props.color === 'azul'
+      ? azul
+      : props.color === 'verde'
+      ? verde
+      : props.color === 'amarillo'
+      ? amarillo_roll
+      : props.color === 'celeste'
+      ? azul4
+      : props.color === 'cafe'
+      ? cafe_2
+      : props.color === 'naranja'
+      ? naranja
+      : props.color === 'rosa'
+      ? rosa_2
+      : 'black'};
+  & h3 {
+    padding-bottom: 30px;
+    border-bottom: 2px solid white;
+    margin: 0;
+  }
+  & p {
+    margin: 0;
+    font-weight: 400;
+  }
+  &:nth-child(4) {
+    margin-right: 0;
+  }
+`
 export const Box = ({ icon, iconImg, title, subtitle, color }) => (
   <ContainerStyled>
     <IconContainer>
@@ -119,4 +167,23 @@ export const Box = ({ icon, iconImg, title, subtitle, color }) => (
       <ColorSubtitle color={color}>{subtitle}</ColorSubtitle>
     </TextContainer>
   </ContainerStyled>
+)
+export const BoxIndicador = ({ title, prescolar, primaria, secundaria }) => (
+  <ContainerIndicadorStyled>
+    <TextContainer>
+      <Title>{title}</Title>
+      <IndicadorContainer color='amarillo'>
+        <h3>{prescolar}</h3>
+        <p>Preescolar</p>
+      </IndicadorContainer>
+      <IndicadorContainer color='verde'>
+        <h3>{primaria}</h3>
+        <p>Primaria</p>
+      </IndicadorContainer>
+      <IndicadorContainer color='azul'>
+        <h3>{secundaria}</h3>
+        <p>Secundaria</p>
+      </IndicadorContainer>
+    </TextContainer>
+  </ContainerIndicadorStyled>
 )
