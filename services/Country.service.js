@@ -1,7 +1,4 @@
-import massive from "../db";
-var httpContext = require("express-http-context");
-
-const db = httpContext.get("db");
+const db = require("express-http-context").get("db");
 
 export default {
   getByCode: async (code) => {
