@@ -1,12 +1,13 @@
-import db from "../db/index";
+import massive from "../db";
+var httpContext = require("express-http-context");
+
+const db = httpContext.get("db");
 
 export default {
-  getByCode: code => {
-    return db.queryForObject("SELECT * FROM countries WHERE code = $1", [
-      code.toUpperCase()
-    ]);
+  getByCode: async (code) => {
+    return await db.countries.findOne({ code: code.toUpperCase() });
   },
-  getCountries: () => {
-    return db.query("SELECT * FROM countries", []);
-  }
+  getCountries: async () => {
+    return await db.countries.find({});
+  },
 };

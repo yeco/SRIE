@@ -4,9 +4,8 @@ import CountryService from "../../../services/Country.service";
 const handler = nextConnect();
 
 handler.get(async (req, res) => {
-  CountryService.getCountries().then(results => {
-    res.status(200).json(results);
-  });
+  const countries = await CountryService.getCountries();
+  res.status(200).json(countries);
 });
 
 export default (req, res) => handler.apply(req, res);
