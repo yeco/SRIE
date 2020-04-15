@@ -16,7 +16,7 @@ import EntornoIcon from '../public/img/home/icon_entorno_indicador.svg'
 import MetasIcon from '../public/img/home/icon_metas_indicador.svg'
 
 export default {
-  title: 'Button',
+  title: 'Box',
   component: ButtonNav,
 }
 

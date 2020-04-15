@@ -10,6 +10,8 @@
         "panel.border": "#2f7c47",
         "sideBar.border": "#2f7c47",
         "editorGroup.border": "#2f7c47",
-        "tab.activeBorder": "#2f7c47"
+        "tab.activeBorder": "#2f7c47",
+        "statusBar.border": "#215732",
+        "titleBar.border": "#215732"
     }
 }

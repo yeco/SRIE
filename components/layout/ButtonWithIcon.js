@@ -6,10 +6,12 @@ import {
   TextContainer,
 } from './Button'
 
-const ButtonWithIcon = ({ children, onClick, icon }) => (
-  <ButtonContainer verde onClick={onClick}>
-    <IconContainer verde>{icon}</IconContainer>
-    <TextContainer verde>{children}</TextContainer>
+const ButtonWithIcon = ({ children, onClick, icon, color }) => (
+  <ButtonContainer color={color} onClick={onClick}>
+    <IconContainer color={color}>
+      <img src={icon} />
+    </IconContainer>
+    <TextContainer color={color}>{children}</TextContainer>
   </ButtonContainer>
 )
 
