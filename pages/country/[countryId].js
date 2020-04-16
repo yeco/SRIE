@@ -1,6 +1,11 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Header from '../../components/layout/Header'
+import {
+  ButtonNav,
+  ButtonNavWithIcon,
+  ButtonNavIndicadores,
+} from '../../components/layout/Button'
 
 export default function Country() {
   const router = useRouter()
@@ -9,6 +14,7 @@ export default function Country() {
     <div>
       <Header />
       <p>Country content for {router.query.countryId}.</p>
+      <ButtonNav amarillo>Dato Pais</ButtonNav>
       <Link href='/'>
         <a>Back to home</a>
       </Link>

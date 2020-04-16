@@ -1,7 +1,13 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 
-import { Box, BoxIndicador } from '../components/layout/Box'
+import {
+  Box,
+  BoxIndicador,
+  BoxPreescolar,
+  BoxPrimaria,
+  BoxSecundaria,
+} from '../components/layout/Box'
 import ButtonWithIcon from '../components/layout/ButtonWithIcon'
 
 import EducacionIcon from '../public/img/home/icon_datos_educ.svg'
@@ -68,3 +74,6 @@ export const Box6 = () => (
     secundaria='50,00%'
   />
 )
+export const Box7 = () => <BoxPreescolar title='PREESCOLAR' />
+export const Box8 = () => <BoxPrimaria title='PRIMARIA' />
+export const Box9 = () => <BoxSecundaria title='SECUNDARIA' />
