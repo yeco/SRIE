@@ -6,6 +6,7 @@ import BannerIcon from '../../public/img/home/icon_cumplimiento_metas.svg'
 
 const ContainerStyled = styled.div`
   display: flex;
+  justify-content: center;
   background-color: ${verde};
   color: white;
   padding: 25px 60px;

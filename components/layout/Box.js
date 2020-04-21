@@ -1,0 +1,308 @@
+import React from 'react'
+import { Row, Col, Container, Image, CardImg } from 'react-bootstrap'
+import styled from 'styled-components'
+
+import {
+  gris1,
+  amarillo,
+  azul,
+  azull_roll,
+  naranja_2,
+  naranja,
+  amarillo_roll,
+  verde,
+  verde_roll,
+  azul4,
+  azul4_2,
+  cafe,
+  cafe_2,
+  rosa,
+  rosa_2,
+  azul5_2,
+} from '../../theme/colors'
+import BannerIcon from '../../public/img/home/icon_cumplimiento_metas.svg'
+import arrow from '../../public/img/home/arrow-more-rollover.svg'
+
+const Title = styled.h3`
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+`
+const ContainerStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: ${gris1};
+  padding: 30px 20px;
+  width: 300px;
+  min-height: 120px;
+`
+const ContainerEducationStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  flex-basis: auto;
+  background-color: ${(props) =>
+    props.color === 'azul'
+      ? '#cce3f2'
+      : props.color === 'verde'
+      ? ' #caf0b0'
+      : props.color === 'amarillo'
+      ? amarillo_roll
+      : props.color === 'celeste'
+      ? azul4_2
+      : props.color === 'cafe'
+      ? cafe_2
+      : props.color === 'naranja'
+      ? naranja_2
+      : props.color === 'rosa'
+      ? '#fdcccc'
+      : 'black'};
+  padding: 0;
+  width: 300px;
+  min-height: 120px;
+  & ${Title} {
+    padding: 3px 1px;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    font-weight: 400;
+  }
+`
+const ContainerIndicadorStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: ${gris1};
+  padding: 10px 20px;
+  width: 300px;
+  min-height: 120px;
+`
+const TextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+`
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`
+const Icon = styled.div`
+  width: 80px;
+  height: 80px;
+  background-color: ${(props) =>
+    props.color === 'azul'
+      ? azul
+      : props.color === 'verde'
+      ? verde
+      : props.color === 'amarillo'
+      ? amarillo_roll
+      : props.color === 'celeste'
+      ? azul4_2
+      : props.color === 'cafe'
+      ? cafe_2
+      : props.color === 'naranja'
+      ? naranja_2
+      : props.color === 'rosa'
+      ? rosa_2
+      : 'black'};
+  -webkit-mask-image: url(${(props) => props.icon});
+  mask-image: url(${(props) => props.icon});
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+`
+const IconImgStyled = styled.img`
+  width: 80px;
+  height: 80px;
+`
+
+const ColorSubtitle = styled.h3`
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin: 0;
+  width: 100%;
+  color: ${(props) =>
+    props.color === 'azul'
+      ? azul
+      : props.color === 'verde'
+      ? verde
+      : props.color === 'amarillo'
+      ? amarillo_roll
+      : props.color === 'celeste'
+      ? azul4
+      : props.color === 'cafe'
+      ? cafe_2
+      : props.color === 'naranja'
+      ? naranja
+      : props.color === 'rosa'
+      ? rosa_2
+      : 'black'};
+`
+const IndicadorContainer = styled.div`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+  padding: 40px 8px;
+  width: 25%;
+  margin-right: 10px;
+  background-color: ${(props) =>
+    props.color === 'azul'
+      ? azul
+      : props.color === 'verde'
+      ? verde
+      : props.color === 'amarillo'
+      ? amarillo_roll
+      : props.color === 'celeste'
+      ? azul4
+      : props.color === 'cafe'
+      ? cafe_2
+      : props.color === 'naranja'
+      ? naranja
+      : props.color === 'rosa'
+      ? rosa_2
+      : 'black'};
+  & h3 {
+    padding-bottom: 30px;
+    border-bottom: 2px solid white;
+    margin: 0;
+  }
+  & p {
+    margin: 0;
+    font-weight: 400;
+  }
+  &:nth-child(4) {
+    margin-right: 0;
+  }
+`
+const SectionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: ${(props) => props.width};
+  padding: 1px 1px;
+  min-height: 120px;
+  background-color: ${(props) => props.color};
+  & h3 {
+    margin: 0;
+    color: white;
+    width: 100%;
+  }
+  & p {
+    margin: 0;
+    color: white;
+    font-weight: 400;
+  }
+`
+export const Box = ({ icon, iconImg, title, subtitle, color }) => (
+  <ContainerStyled>
+    <IconContainer>
+      {iconImg ? (
+        <IconImgStyled src={iconImg} />
+      ) : (
+        <Icon icon={icon} color={color} />
+      )}
+    </IconContainer>
+    <TextContainer>
+      <Title>{title}</Title>
+      <ColorSubtitle color={color}>{subtitle}</ColorSubtitle>
+    </TextContainer>
+  </ContainerStyled>
+)
+export const BoxIndicador = ({ title, prescolar, primaria, secundaria }) => (
+  <ContainerIndicadorStyled>
+    <TextContainer>
+      <Title>{title}</Title>
+      <IndicadorContainer color='amarillo'>
+        <h3>{prescolar}</h3>
+        <p>Preescolar</p>
+      </IndicadorContainer>
+      <IndicadorContainer color='verde'>
+        <h3>{primaria}</h3>
+        <p>Primaria</p>
+      </IndicadorContainer>
+      <IndicadorContainer color='azul'>
+        <h3>{secundaria}</h3>
+        <p>Secundaria</p>
+      </IndicadorContainer>
+    </TextContainer>
+  </ContainerIndicadorStyled>
+)
+
+export const BoxPreescolar = ({ title, prescolar, primaria, secundaria }) => (
+  <ContainerEducationStyled color='rosa'>
+    <TextContainer>
+      <Title>{title}</Title>
+      <SectionContainer color='#fc9999' width='32.5%'>
+        <h3>Grupo interactivo</h3>
+        <p>1</p>
+      </SectionContainer>
+      <SectionContainer color='#fb8080' width='32.5%'>
+        <h3>Grupo interactivo</h3>
+        <p>2</p>
+      </SectionContainer>
+      <SectionContainer color='#bc6060' width='32.5%'>
+        <p> Transicion</p>
+      </SectionContainer>
+    </TextContainer>
+  </ContainerEducationStyled>
+)
+export const BoxPrimaria = ({ title, prescolar, primaria, secundaria }) => (
+  <ContainerEducationStyled color='verde'>
+    <Title>{title}</Title>
+    <SectionContainer color='#afd188' width='16%'>
+      <p>1º</p>
+    </SectionContainer>
+    <SectionContainer color='#95c161' width='16%'>
+      <p>2º</p>
+    </SectionContainer>
+    <SectionContainer color='#7ab239' width='16%'>
+      <p>3º</p>
+    </SectionContainer>
+    <SectionContainer color='#5c852b' width='16%'>
+      <p>4º</p>
+    </SectionContainer>
+    <SectionContainer color='#3d591d' width='16%'>
+      <p>5º</p>
+    </SectionContainer>
+    <SectionContainer color='#324914' width='16%'>
+      <p>6º</p>
+    </SectionContainer>
+  </ContainerEducationStyled>
+)
+export const BoxSecundaria = ({ title, prescolar, primaria, secundaria }) => (
+  <ContainerEducationStyled color='azul'>
+    <Title>{title}</Title>
+    <SectionContainer color='#66aad7' width='16%'>
+      <p>7º</p>
+    </SectionContainer>
+    <SectionContainer color='#338dc9' width='16%'>
+      <p>8º</p>
+    </SectionContainer>
+    <SectionContainer color='#0071bc' width='16%'>
+      <p>9º</p>
+    </SectionContainer>
+    <SectionContainer color='#00558d' width='16%'>
+      <p>10º</p>
+    </SectionContainer>
+    <SectionContainer color='#00395e' width='16%'>
+      <p>11º</p>
+    </SectionContainer>
+    <SectionContainer color='#032d44' width='16%'>
+      <p>12º</p>
+    </SectionContainer>
+  </ContainerEducationStyled>
+)
