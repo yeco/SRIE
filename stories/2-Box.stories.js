@@ -15,11 +15,16 @@ import ConclusionIcon from '../public/img/home/icon_conclusion_indicador.svg'
 import EntornoIcon from '../public/img/home/icon_entorno_indicador.svg'
 import MetasIcon from '../public/img/home/icon_metas_indicador.svg'
 
+import IndEducativo from "../components/layout/IndEducativo";
+
 export default {
   title: 'Box',
   component: ButtonNav,
 }
 
+export const IndicadorEducativo = () => (
+  <IndEducativo></IndEducativo>
+)
 export const Nav1 = () => (
   <ButtonNav amarillo onClick={action('clicked')}>
     Hello Button

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Header from "../components/layout/Header";
+import IndEducativo from "../components/layout/IndEducativo";
 import { Container } from "react-bootstrap";
 
 export default class extends React.Component {
@@ -14,6 +15,7 @@ export default class extends React.Component {
             <Header path={pa} />
             <Container>
             <h2>Glosario</h2>
+            <IndEducativo/>
             </Container>
             <style jsx>{``}</style>
         </>
