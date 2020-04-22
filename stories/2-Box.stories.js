@@ -17,11 +17,26 @@ import DatoNinoIcon from '../public/img/home/icono_datos_niños.svg'
 import EntornoIcon from '../public/img/home/icon_entorno_indicador.svg'
 import MetasIcon from '../public/img/home/icon_metas_indicador.svg'
 
+import IndEducativo from "../components/layout/IndEducativo";
+
 export default {
   title: 'Box',
   component: Box,
 }
 
+export const IndicadorEducativo = () => (
+  <IndEducativo></IndEducativo>
+)
+export const Nav1 = () => (
+  <ButtonNav amarillo onClick={action('clicked')}>
+    Hello Button
+  </ButtonNav>
+)
+export const Nav2 = () => (
+  <ButtonNav azul onClick={action('clicked')}>
+    Hello Button
+  </ButtonNav>
+)
 export const Box1 = () => (
   <Box
     iconImg={EducacionIcon}

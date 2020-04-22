@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Header from '../../components/layout/Header'
+import NavSecundaryCountries from "../../components/layout/NavSecundaryCountries"
 import { Container, Col, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
@@ -47,6 +48,7 @@ export default function Country() {
     <div>
       <Header />
       {/* <p>Country content for {router.query.countryId}.</p> */}
+      <NavSecundaryCountries/>
       <Container>
         <Row className='d-flex justify-content-between'>
           <div className='col-lg-4'>

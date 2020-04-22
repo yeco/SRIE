@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Header from '../components/layout/Header'
+// import IndEducativo from "../components/layout/IndEducativo";
 import { Container } from 'react-bootstrap'
 
 export default class extends React.Component {
