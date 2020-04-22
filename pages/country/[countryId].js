@@ -32,6 +32,9 @@ import AprendizajeIcon from '../../public/img/home/icon_aprendizaje_indicador.sv
 import ConclusionIcon from '../../public/img/home/icon_conclusion_indicador.svg'
 import EntornoIcon from '../../public/img/home/icon_entorno_indicador.svg'
 import MetasIcon from '../../public/img/home/icon_metas_indicador.svg'
+import CrFlag from '../../public/img/home/bandera-costa_rica.png'
+import FlagNameComponent from '../../components/layout/FlagNameComponent'
+import Title from '../../components/layout/Title'
 
 const ColNotPadding = styled(Col)`
   padding: 0;
@@ -45,26 +48,33 @@ export default function Country() {
       <Header />
       {/* <p>Country content for {router.query.countryId}.</p> */}
       <Container>
-        <Row>
-          <div className='col-lg-3'>Costa Rica</div>
+        <Row className='d-flex justify-content-between'>
+          <div className='col-lg-4'>
+            <FlagNameComponent icon={CrFlag}>Costa Rica</FlagNameComponent>
+          </div>
+          <Row className='col-lg-8 d-flex justify-content-end p-0'>
+            <div className='col-lg-2 pr-0'>
+              <ButtonNav amarillo>Dato Pais</ButtonNav>
+            </div>
 
-          <div className='col-lg-3'>
-            <ButtonNav amarillo>Dato Pais</ButtonNav>
-          </div>
-
-          <div className='col-lg-3'>
-            <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
-          </div>
-          <div className='col-lg-3'>
-            <ButtonNav verde>AVANCE 2021</ButtonNav>
-          </div>
+            <div className='col-lg-3 pr-0'>
+              <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
+            </div>
+            <div className='col-lg-2 pr-0'>
+              <ButtonNav verde>AVANCE 2021</ButtonNav>
+            </div>
+          </Row>
         </Row>
-        <Row>
-          <div className='col-lg-3'>
-            <h3>Datos pais</h3>
+        <Row className='mt-4'>
+          <div className='col-lg-12 mb-4 text-center'>
+            <Title color='amarillo' type='title'>
+              Datos pais
+            </Title>
           </div>
-          <div className='col-lg-12 m-0 p-0'>
-            <h4>Estructura del sistema educativo del país</h4>
+          <div className='col-lg-12 mb-3 p-0 text-center'>
+            <Title color='negro' type='subtitle'>
+              Estructura del sistema educativo del país
+            </Title>
           </div>
           <div className='col-lg-4 m-0 p-0'>
             <BoxPreescolar title='PREESCOLAR' />
@@ -142,12 +152,16 @@ export default function Country() {
         </Row>
       </Container>
       <Container>
-        <Row>
-          <div className='col-lg-12'>
-            <h3>Indicadores Educativos</h3>
+        <Row className='mt-5'>
+          <div className='col-lg-12 text-center'>
+            <Title color='azul' type='title'>
+              Indicadores Educativos
+            </Title>
           </div>
-          <div className='col-lg-12'>
-            <h4>Por categoria</h4>
+          <div className='col-lg-12 text-center'>
+            <Title color='azul' type='subtitle'>
+              Por categoria
+            </Title>
           </div>
         </Row>
         <Row className='mt-4 mb-4'>
@@ -187,8 +201,8 @@ export default function Country() {
             </ButtonWithIcon>
           </div>
         </Row>
-        <Row>
-          <div className='col-lg-4'>
+        <Row className='mb-5'>
+          <div className='col-lg-12 d-flex justify-content-end'>
             <ButtonNavIndicadores azul>
               Ver los indicadores
             </ButtonNavIndicadores>

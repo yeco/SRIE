@@ -37,7 +37,7 @@ const ContainerStyled = styled.div`
   text-align: center;
   background-color: ${gris1};
   padding: 30px 20px;
-  width: 300px;
+  width: 100%;
   height: 250px;
   min-height: 120px;
 `
@@ -81,8 +81,8 @@ const ContainerIndicadorStyled = styled.div`
   flex-wrap: wrap;
   text-align: center;
   background-color: ${gris1};
-  padding: 10px 20px;
-  width: 300px;
+  padding: 10px 11px;
+  width: 100%;
   height: 250px;
   min-height: 120px;
 `
@@ -158,7 +158,8 @@ const IndicadorContainer = styled.div`
   font-size: 1em;
   text-align: center;
   padding: 40px 8px;
-  width: 25%;
+  width: 24%;
+  box-sizing: content-box;
   margin-right: 10px;
   background-color: ${(props) =>
     props.color === 'azul'
@@ -180,10 +181,14 @@ const IndicadorContainer = styled.div`
     padding-bottom: 30px;
     border-bottom: 2px solid white;
     margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
   }
   & p {
     margin: 0;
+    margin-top: 10px;
     font-weight: 400;
+    font-size: 0.8em;
   }
   &:nth-child(4) {
     margin-right: 0;
@@ -227,21 +232,19 @@ export const Box = ({ icon, iconImg, title, subtitle, color }) => (
 )
 export const BoxIndicador = ({ title, prescolar, primaria, secundaria }) => (
   <ContainerIndicadorStyled>
-    <TextContainer>
-      <Title>{title}</Title>
-      <IndicadorContainer color='amarillo'>
-        <h3>{prescolar}</h3>
-        <p>Preescolar</p>
-      </IndicadorContainer>
-      <IndicadorContainer color='verde'>
-        <h3>{primaria}</h3>
-        <p>Primaria</p>
-      </IndicadorContainer>
-      <IndicadorContainer color='azul'>
-        <h3>{secundaria}</h3>
-        <p>Secundaria</p>
-      </IndicadorContainer>
-    </TextContainer>
+    <Title>{title}</Title>
+    <IndicadorContainer color='amarillo'>
+      <h3>{prescolar}</h3>
+      <p>Preescolar</p>
+    </IndicadorContainer>
+    <IndicadorContainer color='verde'>
+      <h3>{primaria}</h3>
+      <p>Primaria</p>
+    </IndicadorContainer>
+    <IndicadorContainer color='azul'>
+      <h3>{secundaria}</h3>
+      <p>Secundaria</p>
+    </IndicadorContainer>
   </ContainerIndicadorStyled>
 )
 

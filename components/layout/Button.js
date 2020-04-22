@@ -34,10 +34,10 @@ export const ButtonNav = styled.button`
         ? amarillo_roll
         : undefined};
   text-transform: uppercase;
-  padding: 16px 48px;
+  padding: 10px 0;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
   transition: all ease-in 0.2s;
   background-color: ${(props) =>
