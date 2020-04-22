@@ -38,6 +38,7 @@ const ContainerStyled = styled.div`
   background-color: ${gris1};
   padding: 30px 20px;
   width: 300px;
+  height: 250px;
   min-height: 120px;
 `
 const ContainerEducationStyled = styled.div`
@@ -64,7 +65,7 @@ const ContainerEducationStyled = styled.div`
       ? '#fdcccc'
       : 'black'};
   padding: 0;
-  width: 300px;
+  width: 100%;
   min-height: 120px;
   & ${Title} {
     padding: 3px 1px;
@@ -82,6 +83,7 @@ const ContainerIndicadorStyled = styled.div`
   background-color: ${gris1};
   padding: 10px 20px;
   width: 300px;
+  height: 250px;
   min-height: 120px;
 `
 const TextContainer = styled.div`
@@ -200,6 +202,7 @@ const SectionContainer = styled.div`
     margin: 0;
     color: white;
     width: 100%;
+    font-size: 0.8em;
   }
   & p {
     margin: 0;
@@ -211,7 +214,7 @@ export const Box = ({ icon, iconImg, title, subtitle, color }) => (
   <ContainerStyled>
     <IconContainer>
       {iconImg ? (
-        <IconImgStyled src={iconImg} />
+        <IconImgStyled src={iconImg} alt='icon' />
       ) : (
         <Icon icon={icon} color={color} />
       )}
@@ -244,20 +247,18 @@ export const BoxIndicador = ({ title, prescolar, primaria, secundaria }) => (
 
 export const BoxPreescolar = ({ title, prescolar, primaria, secundaria }) => (
   <ContainerEducationStyled color='rosa'>
-    <TextContainer>
-      <Title>{title}</Title>
-      <SectionContainer color='#fc9999' width='32.5%'>
-        <h3>Grupo interactivo</h3>
-        <p>1</p>
-      </SectionContainer>
-      <SectionContainer color='#fb8080' width='32.5%'>
-        <h3>Grupo interactivo</h3>
-        <p>2</p>
-      </SectionContainer>
-      <SectionContainer color='#bc6060' width='32.5%'>
-        <p> Transicion</p>
-      </SectionContainer>
-    </TextContainer>
+    <Title>{title}</Title>
+    <SectionContainer color='#fc9999' width='32.5%'>
+      <h3>Grupo interactivo</h3>
+      <p>1</p>
+    </SectionContainer>
+    <SectionContainer color='#fb8080' width='32.5%'>
+      <h3>Grupo interactivo</h3>
+      <p>2</p>
+    </SectionContainer>
+    <SectionContainer color='#bc6060' width='32.5%'>
+      <p> Transicion</p>
+    </SectionContainer>
   </ContainerEducationStyled>
 )
 export const BoxPrimaria = ({ title, prescolar, primaria, secundaria }) => (

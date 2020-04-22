@@ -1,39 +1,43 @@
-import Link from "next/link";
-import { nav } from "./../../pages/api/navbar";
-import { Navbar,Nav,NavDropdown } from "react-bootstrap";
+import Link from 'next/link'
+import { nav } from './../../pages/api/navbar'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 export default class NavBar extends React.Component {
   render() {
-    const {path} = this.props
-    
-    return (
-        
-      <>
-      {/* {path} */}
-        <Navbar expand="lg">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className={path == "/" ? "CName" : ""}>
-            <Nav className="mr-auto">
-            {
-            nav.map(item => {
-                return (
-                <>
-                <NavDropdown title={item.label} id="basic-nav-dropdown">
-                    {item.items.map(item2 => {
-                        return (
-                            <NavDropdown.Item href={item2.href} className={path == item2.href ? "CName-ative" : ""}>{item2.label}</NavDropdown.Item>             
-                            )
-                        })
-                    }
-                </NavDropdown> 
-                </>
-                )
-            })
-            }
-            </Nav>
+    const { path } = this.props
 
+    return (
+      <>
+        {/* {path} */}
+        <Navbar expand='lg'>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse
+            id='basic-navbar-nav'
+            className={path == '/' ? 'CName' : ''}
+          >
+            <Nav className='mr-auto'>
+              {nav.map((item, indexDrop) => {
+                return (
+                  <NavDropdown
+                    title={item.label}
+                    id='basic-nav-dropdown'
+                    key={`nav-drop-${indexDrop}`}
+                  >
+                    {item.items.map((item2, index) => (
+                      <NavDropdown.Item
+                        key={`nav-${index}`}
+                        href={item2.href}
+                        className={path == item2.href ? 'CName-ative' : ''}
+                      >
+                        {item2.label}
+                      </NavDropdown.Item>
+                    ))}
+                  </NavDropdown>
+                )
+              })}
+            </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <style type="text/css">{`
+        <style type='text/css'>{`
             
             .nav-link{
                 font-family: 'Raleway', sans-serif;
@@ -70,6 +74,6 @@ export default class NavBar extends React.Component {
             
         `}</style>
       </>
-    );
+    )
   }
 }

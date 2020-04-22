@@ -23,6 +23,7 @@ import arrow from '../../public/img/home/arrow-more-rollover.svg'
 export const ButtonNav = styled.button`
   outline: 0;
   border: 0;
+  width: 100%;
   border-bottom: 10px solid
     ${(props) =>
       props.azul
@@ -173,7 +174,7 @@ export const ButtonContainer = styled.button`
   font-size: 14px;
   cursor: pointer;
   transition: all ease-in 0.9s;
-  width: 400px;
+  width: 100%;
   color: white;
   &:hover div {
     border-bottom: 10px solid
@@ -215,8 +216,8 @@ export const IconContainer = styled.div`
   margin-right: 5px;
   padding: 10px 15px;
   & img {
-    width: 25px;
-    height: 25px;
+    width: 31px;
+    height: 31px;
   }
 `
 export const TextContainer = styled.div`
