@@ -9,7 +9,7 @@ import {
   BoxSecundaria,
 } from '../components/layout/Box'
 import ButtonWithIcon from '../components/layout/ButtonWithIcon'
-
+import { LineTime } from '../components/layout/TimeLineEducation'
 import EducacionIcon from '../public/img/home/icon_datos_educ.svg'
 import AlfabetizacionIcon from '../public/img/home/icon_datos_alfabetizacion.svg'
 import CentroseducIcon from '../public/img/home/icon_datos_centroseduc.svg'
@@ -92,3 +92,4 @@ export const Box6 = () => (
 export const Box7 = () => <BoxPreescolar title='PREESCOLAR' />
 export const Box8 = () => <BoxPrimaria title='PRIMARIA' />
 export const Box9 = () => <BoxSecundaria title='SECUNDARIA' />
+export const Line = () => <LineTime />

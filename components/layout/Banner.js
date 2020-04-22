@@ -9,6 +9,7 @@ const ContainerStyled = styled.div`
   justify-content: center;
   background-color: ${verde};
   color: white;
+  height: 200px;
   padding: 25px 60px;
   & h3 {
     font-size: 1.4em;

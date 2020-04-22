@@ -1,20 +1,20 @@
-import theme from "../../styles/theme";
-import Link from "next/link";
-import { Col } from "react-bootstrap";
+import theme from '../../styles/theme'
+import Link from 'next/link'
+import { Col } from 'react-bootstrap'
 
 export default function CountryItem(props) {
   return (
     <>
       <Col xs={6} sm={3}>
-      <Link
-        href="/country/[countryId]"
-        as={`country/${props.country.countryId}`}
-      >
-        <a title={props.country.title}>
-          <img src={props.country.img} />
-          <span className="cy-link">{props.country.title}</span>
-        </a>
-      </Link>
+        <Link
+          href='/country/[countryId]'
+          as={`country/${props.country.countryId}`}
+        >
+          <a title={props.country.title}>
+            <img src={props.country.img} alt='country img' />
+            <span className='cy-link'>{props.country.title}</span>
+          </a>
+        </Link>
       </Col>
       <style jsx>{`
         a {
@@ -31,7 +31,7 @@ export default function CountryItem(props) {
           border: 2px solid;
         }
         span.cy-link {
-          background: #1D2D49;
+          background: #1d2d49;
           background-image: url(/img/home/arrow-more-white.svg);
           background-repeat: no-repeat;
           background-position: 90%;
@@ -39,7 +39,7 @@ export default function CountryItem(props) {
           padding: 5px 35px;
           border-radius: 15px;
           text-transform: uppercase;
-          font-family: "Raleway", sans-serif;
+          font-family: 'Raleway', sans-serif;
           font-weight: bold;
           white-space: nowrap;
         }
@@ -53,5 +53,5 @@ export default function CountryItem(props) {
         }
       `}</style>
     </>
-  );
+  )
 }
