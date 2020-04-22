@@ -54,11 +54,13 @@ export default function Country() {
           </div>
           <Row className='col-lg-8 d-flex justify-content-end p-0'>
             <div className='col-lg-2 pr-0'>
-              <ButtonNav amarillo>Dato Pais</ButtonNav>
+              <ButtonNav amarillo>Dato Pais </ButtonNav>
             </div>
 
             <div className='col-lg-3 pr-0'>
-              <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
+              <Link href='/indicadores' as={`indicadores`}>
+                <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
+              </Link>
             </div>
             <div className='col-lg-2 pr-0'>
               <ButtonNav verde>AVANCE 2021</ButtonNav>

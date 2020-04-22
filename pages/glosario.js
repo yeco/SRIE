@@ -1,22 +1,22 @@
-import Link from "next/link";
-import Header from "../components/layout/Header";
-import { Container } from "react-bootstrap";
+import Link from 'next/link'
+import Header from '../components/layout/Header'
+import { Container } from 'react-bootstrap'
 
 export default class extends React.Component {
-    static async getInitialProps({ pathname }) {
-        let pa = pathname        
-        return { pa }
-    }
-    render() {
-        const { pa } = this.props
-        return (
-        <>
-            <Header path={pa} />
-            <Container>
-            <h2>Glosario</h2>
-            </Container>
-            <style jsx>{``}</style>
-        </>
-        );
-    }
+  static async getInitialProps({ pathname }) {
+    let pa = pathname
+    return { pa }
+  }
+  render() {
+    const { pa } = this.props
+    return (
+      <>
+        <Header path={pa} />
+        <Container>
+          <h2>Glosario</h2>
+        </Container>
+        <style jsx>{``}</style>
+      </>
+    )
+  }
 }
