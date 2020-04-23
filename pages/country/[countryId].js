@@ -20,7 +20,10 @@ import {
   BoxSecundaria,
 } from '../../components/layout/Box'
 import Banner from '../../components/layout/Banner'
-import { LineTime } from '../../components/layout/TimeLineEducation'
+import {
+  LineTime,
+  TitleLineTime,
+} from '../../components/layout/TimeLineEducation'
 
 import EducacionIcon from '../../public/img/home/icon_datos_educ.svg'
 import AlfabetizacionIcon from '../../public/img/home/icon_datos_alfabetizacion.svg'
@@ -141,6 +144,9 @@ export default function Country() {
           </div>
           <div className='col-lg-12 m-0 p-0'>
             <LineTime />
+          </div>
+          <div className='col-lg-12 m-0 p-0'>
+            <TitleLineTime />
           </div>
         </Row>
         <Row className='mt-5 mb-5'>
