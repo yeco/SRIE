@@ -188,7 +188,6 @@ export default function Country() {
           <div className='col-lg-4'>
             <BoxIndicador
               title='Tasa de finalización, por nivel'
-              prescolar='50,09%'
               primaria='36,00%'
               secundaria='50,00%'
             />
