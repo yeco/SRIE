@@ -35,7 +35,7 @@ Home.getInitialProps = async function({pathname}) {
   let pa = pathname
   const res = await fetch("http://localhost:3000/api/countries");
   const countries = await res.json();
-  
+
   return {
     countries: countries,
     pa: pa

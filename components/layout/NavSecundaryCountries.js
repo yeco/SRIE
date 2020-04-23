@@ -8,7 +8,7 @@ import CountryItem from "../homepage/CountryItem";
 
 export default class NavSecundaryCountries extends React.Component {
   render() {
-    const { path } = this.props;
+    const { path, idCountry } = this.props;
 
     const mystyle = {
         color: "white",
@@ -16,9 +16,11 @@ export default class NavSecundaryCountries extends React.Component {
         padding: "10px",
         fontFamily: "Arial"
       };
+      
 
     return (
       <>
+      
       <div className="box_linkC">
       <Container>
       <Row>
@@ -38,7 +40,7 @@ export default class NavSecundaryCountries extends React.Component {
                                 as={`${country.countryId}`}
                                 
                             >
-                                <a title={country.title} id={`link_${country.countryId}` } className="linkCountry">
+                                <a title={country.title} id={`link_${country.countryId}` } className={`linkCountry active_${idCountry}`}>
                                 {/* backgroundimage: url(); */}
                                 {/* <img src={country.img} /> */}
                                 <span className="cy-link">{country.title}</span>
@@ -72,6 +74,8 @@ export default class NavSecundaryCountries extends React.Component {
                     background-size: 100%;
                     margin: 0 5px;
                     border-radius: 50%;
+                    border: 2px solid white;
+                    transition: 0.2s;
                 }
                 a.linkCountry:hover{
                     font-size: 0;
@@ -81,6 +85,7 @@ export default class NavSecundaryCountries extends React.Component {
                     background-size: 100%;
                     margin: 0 5px;
                     border-radius: 50%;
+                    transform: scale(1.1);
                 }
                 a#link_bh {
                     background-image: url(/img/home/bandera-belice-BN.png);
@@ -106,28 +111,28 @@ export default class NavSecundaryCountries extends React.Component {
                 a#link_dr {
                     background-image: url(/img/home/bandera-rep_dominicana-BN.png);
                 }
-                a#link_bh:hover {
+                a#link_bh:hover, a#link_bh.active_bh {
                     background-image: url(/img/home/bandera-belice.png);
                 }
-                a#link_cr:hover {
+                a#link_cr:hover, a#link_cr.active_cr {
                     background-image: url(/img/home/bandera-costa_rica.png);
                 }
-                a#link_es:hover {
+                a#link_es:hover, a#link_es.active_es {
                     background-image: url(/img/home/bandera-el_salvador.png);
                 }
-                a#link_gt:hover {
+                a#link_gt:hover, a#link_gt.active_gt {
                     background-image: url(/img/home/bandera-guatemala.png);
                 }
-                a#link_ho:hover {
+                a#link_ho:hover, a#link_ho.active_ho {
                     background-image: url(/img/home/bandera-honduras.png);
                 }
-                a#link_nu:hover {
+                a#link_nu:hover, a#link_nu.active_nu {
                     background-image: url(/img/home/bandera-nicaragua.png);
                 }
-                a#link_pm:hover {
+                a#link_pm:hover, a#link_pm.active_pm {
                     background-image: url(/img/home/bandera-panama.png);
                 }
-                a#link_dr:hover {
+                a#link_dr:hover, a#link_dr.active_dr {
                     background-image: url(/img/home/bandera-rep_dominicana.png);
                 }
                 

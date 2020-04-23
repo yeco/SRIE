@@ -86,13 +86,13 @@ export default function Country() {
     default:
       break;
   }
-  console.log(imgUrlCountry)
+  // console.log(imgUrlCountry)
   return (
     <div>
       {/* {router.query.countryId} */}
       <Header />
       {/* <p>Country content for {router.query.countryId}.</p> */}
-      <NavSecundaryCountries/>
+      <NavSecundaryCountries idCountry={router.query.countryId}/>
       <Container>
         <Row className='d-flex justify-content-between'>
           <div className='col-lg-4'>

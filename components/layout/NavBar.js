@@ -4,10 +4,12 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 export default class NavBar extends React.Component {
   render() {
     const { path } = this.props
-
+    
+    
+    
     return (
       <>
-        {/* {path} */}
+        {path}
         <Navbar expand='lg'>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse
@@ -23,13 +25,24 @@ export default class NavBar extends React.Component {
                     key={`nav-drop-${indexDrop}`}
                   >
                     {item.items.map((item2, index) => (
-                      <NavDropdown.Item
-                        key={`nav-${index}`}
-                        href={item2.href}
-                        className={path == item2.href ? 'CName-ative' : ''}
+                      // <NavDropdown.Item
+                      //   key={`nav-${index}`}
+                      //   href={item2.href}
+                      //   className={path == item2.href ? 'CName-ative' : ''}
+                      // >
+                      //   {item2.label}
+                      // </NavDropdown.Item>
+                      // <Navbar.Text > 
+                      <Link
+                        href='/country/[countryId]'
+                        as={`/country/${item2.href}`}
+                        
                       >
-                        {item2.label}
-                      </NavDropdown.Item>
+                        <a className="nav-item-drop">
+                          {item2.label}
+                        </a>
+                      </Link>
+                      // </Navbar.Text>
                     ))}
                   </NavDropdown>
                 )
@@ -50,13 +63,19 @@ export default class NavBar extends React.Component {
                 color: white !important;
                 
             }
+            a.nav-item-drop {
+              color: white !important;
+              display: block;
+              padding: 5px 10px;
+              width: 210px;
+            }
             .dropdown-menu{
                 background-color: #1D2D49;
             }
             .dropdown-item{
                 color: white;
             }
-            .dropdown-item:focus, .dropdown-item:hover {
+            .dropdown-item:focus, .dropdown-item:hover,a.nav-item-drop:hover {
                 color: #16181b;
                 text-decoration: none;
                 background-color: #0071BC;
