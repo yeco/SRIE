@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { countries } from "./../../pages/api/countries-data";
 import CountryItem from "../homepage/CountryItem";
 
-console.log(countries);
+// console.log(countries);
 
 export default class NavSecundaryCountries extends React.Component {
   render() {
@@ -62,6 +62,7 @@ export default class NavSecundaryCountries extends React.Component {
                 .box_linkC {
                     background: #cccccc;
                     padding: 10px 0px;
+                    margin: 0 0 2em 0;
                 }
                 a.linkCountry{
                     font-size: 0;
