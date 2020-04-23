@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Header from '../../components/layout/Header'
-import NavSecundaryCountries from "../../components/layout/NavSecundaryCountries"
+import NavSecundaryCountries from '../../components/layout/NavSecundaryCountries'
 import { Container, Col, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
@@ -20,7 +20,10 @@ import {
   BoxSecundaria,
 } from '../../components/layout/Box'
 import Banner from '../../components/layout/Banner'
-import { LineTime } from '../../components/layout/TimeLineEducation'
+import {
+  LineTime,
+  TitleLineTime,
+} from '../../components/layout/TimeLineEducation'
 
 import EducacionIcon from '../../public/img/home/icon_datos_educ.svg'
 import AlfabetizacionIcon from '../../public/img/home/icon_datos_alfabetizacion.svg'
@@ -41,50 +44,48 @@ const ColNotPadding = styled(Col)`
   padding: 0;
 `
 
-
-
 export default function Country() {
   const router = useRouter()
-  
+
   const keu_c = router.query.countryId
-  let imgUrlCountry = ""
-  let titleC = ""
+  let imgUrlCountry = ''
+  let titleC = ''
   switch (router.query.countryId) {
-    case "bh":
-      imgUrlCountry = "/img/home/bandera-belice.png"
-      titleC = "Belice"
-    break;
-    case "cr":
-      imgUrlCountry = "/img/home/bandera-costa_rica.png"
-      titleC = "Costa Rica"
-    break;
-    case "es":
-      imgUrlCountry = "/img/home/bandera-el_salvador.png"
-      titleC = "El Salvador"
-    break;
-    case "gt":
-      imgUrlCountry = "/img/home/bandera-guatemala.png"
-      titleC = "Guatemala"
-    break;
-    case "ho":
-      imgUrlCountry = "/img/home/bandera-honduras.png"
-      titleC = "Honduras"
-    break;
-    case "nu":
-      imgUrlCountry = "/img/home/bandera-nicaragua.png"
-      titleC = "Nicaragua"
-    break;
-    case "pm":
-      imgUrlCountry = "/img/home/bandera-panama.png"
-      titleC = "Panamá"
-    break;
-    case "dr":
-      imgUrlCountry = "/img/home/bandera-rep_dominicana.png"
-      titleC = "Rep. Dominicana"
-    break;
-  
+    case 'bh':
+      imgUrlCountry = '/img/home/bandera-belice.png'
+      titleC = 'Belice'
+      break
+    case 'cr':
+      imgUrlCountry = '/img/home/bandera-costa_rica.png'
+      titleC = 'Costa Rica'
+      break
+    case 'es':
+      imgUrlCountry = '/img/home/bandera-el_salvador.png'
+      titleC = 'El Salvador'
+      break
+    case 'gt':
+      imgUrlCountry = '/img/home/bandera-guatemala.png'
+      titleC = 'Guatemala'
+      break
+    case 'ho':
+      imgUrlCountry = '/img/home/bandera-honduras.png'
+      titleC = 'Honduras'
+      break
+    case 'nu':
+      imgUrlCountry = '/img/home/bandera-nicaragua.png'
+      titleC = 'Nicaragua'
+      break
+    case 'pm':
+      imgUrlCountry = '/img/home/bandera-panama.png'
+      titleC = 'Panamá'
+      break
+    case 'dr':
+      imgUrlCountry = '/img/home/bandera-rep_dominicana.png'
+      titleC = 'Rep. Dominicana'
+      break
+
     default:
-      break;
+      break
   }
   // console.log(imgUrlCountry)
   return (
@@ -92,27 +93,29 @@ export default function Country() {
       {/* {router.query.countryId} */}
       <Header />
       {/* <p>Country content for {router.query.countryId}.</p> */}
-      <NavSecundaryCountries idCountry={router.query.countryId}/>
-      <Container>
+      <NavSecundaryCountries idCountry={router.query.countryId} />
+      <Container className='mt-4'>
         <Row className='d-flex justify-content-between'>
           <div className='col-lg-4'>
             {/* <FlagNameComponent icon={imgUrlCountry}>{titleC}</FlagNameComponent> */}
             <Row>
-              <Col sm={2} className="imgUrlCountry p-0">
-                <img src={imgUrlCountry} alt=""/>
+              <Col sm={2} className='imgUrlCountry p-0'>
+                <img src={imgUrlCountry} alt='' />
               </Col>
-              <Col className="titleC p-0">
-              <h2>{titleC}</h2>
+              <Col className='titleC p-0'>
+                <h2>{titleC}</h2>
               </Col>
             </Row>
           </div>
           <Row className='col-lg-8 d-flex justify-content-end p-0'>
             <div className='col-lg-2 pr-0'>
-              <ButtonNav amarillo>Dato Pais</ButtonNav>
+              <ButtonNav amarillo>Dato Pais </ButtonNav>
             </div>
 
             <div className='col-lg-3 pr-0'>
-              <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
+              <Link href='/indicadores' as={`indicadores`}>
+                <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
+              </Link>
             </div>
             <div className='col-lg-2 pr-0'>
               <ButtonNav verde>AVANCE 2021</ButtonNav>
@@ -141,6 +144,9 @@ export default function Country() {
           </div>
           <div className='col-lg-12 m-0 p-0'>
             <LineTime />
+          </div>
+          <div className='col-lg-12 m-0 p-0'>
+            <TitleLineTime />
           </div>
         </Row>
         <Row className='mt-5 mb-5'>
@@ -181,8 +187,7 @@ export default function Country() {
 
           <div className='col-lg-4'>
             <BoxIndicador
-              title='Niñas, niños y adolescentes fuera'
-              prescolar='50,09%'
+              title='Tasa de finalización, por nivel'
               primaria='36,00%'
               secundaria='50,00%'
             />
@@ -263,7 +268,7 @@ export default function Country() {
           </div>
         </Row>
       </Container>
-      <style type="text/css">{`
+      <style type='text/css'>{`
       .imgUrlCountry img{
         width: 50px;
         height: 30px;

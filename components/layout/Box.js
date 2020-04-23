@@ -233,10 +233,13 @@ export const Box = ({ icon, iconImg, title, subtitle, color }) => (
 export const BoxIndicador = ({ title, prescolar, primaria, secundaria }) => (
   <ContainerIndicadorStyled>
     <Title>{title}</Title>
-    <IndicadorContainer color='amarillo'>
-      <h3>{prescolar}</h3>
-      <p>Preescolar</p>
-    </IndicadorContainer>
+    {prescolar ? (
+      <IndicadorContainer color='amarillo'>
+        <h3>{prescolar}</h3>
+        <p>Preescolar</p>
+      </IndicadorContainer>
+    ) : undefined}
+
     <IndicadorContainer color='verde'>
       <h3>{primaria}</h3>
       <p>Primaria</p>

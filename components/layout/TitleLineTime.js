@@ -37,38 +37,15 @@ const Line = styled.div`
   margin-right: 5px;
   box-sizing: content-box;
 `
-const LineTitle = styled.div`
-  padding: 3px 1px;
-  color: ${(props) => props.color};
-  width: ${(props) => props.width};
-  margin-right: 5px;
-  box-sizing: content-box;
-  text-align: center;
-  font-size: 0.9em;
-`
 const LineColumn = styled.div``
-export const LineTime = ({ title, prescolar, primaria, secundaria }) => (
+export const TitleLineTime = ({ title, prescolar, primaria, secundaria }) => (
   <LineContainer>
-    <Line color='#fb8080' width='21.5%'></Line>
+    <Line color='#fb8080' width='21.5%'>
+      Materno infantil
+    </Line>
+
     <Line color='#bc6060' width='10.6%'></Line>
     <Line color='#7ab239' width='50%'></Line>
     <Line color='#0071bc' width='15.1%'></Line>
-  </LineContainer>
-)
-
-export const TitleLineTime = ({ title, prescolar, primaria, secundaria }) => (
-  <LineContainer>
-    <LineTitle color='#fb8080' width='21.5%'>
-      Materno infantil
-    </LineTitle>
-    <LineTitle color='#bc6060' width='10.6%'>
-      Preescolar
-    </LineTitle>
-    <LineTitle color='#7ab239' width='50%'>
-      Educación general básica
-    </LineTitle>
-    <LineTitle color='#0071bc' width='15.1%'>
-      Educación diversificada
-    </LineTitle>
   </LineContainer>
 )
