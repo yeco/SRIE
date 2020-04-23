@@ -41,18 +41,70 @@ const ColNotPadding = styled(Col)`
   padding: 0;
 `
 
+
+
 export default function Country() {
   const router = useRouter()
-
+  
+  const keu_c = router.query.countryId
+  let imgUrlCountry = ""
+  let titleC = ""
+  switch (router.query.countryId) {
+    case "bh":
+      imgUrlCountry = "/img/home/bandera-belice.png"
+      titleC = "Belice"
+    break;
+    case "cr":
+      imgUrlCountry = "/img/home/bandera-costa_rica.png"
+      titleC = "Costa Rica"
+    break;
+    case "es":
+      imgUrlCountry = "/img/home/bandera-el_salvador.png"
+      titleC = "El Salvador"
+    break;
+    case "gt":
+      imgUrlCountry = "/img/home/bandera-guatemala.png"
+      titleC = "Guatemala"
+    break;
+    case "ho":
+      imgUrlCountry = "/img/home/bandera-honduras.png"
+      titleC = "Honduras"
+    break;
+    case "nu":
+      imgUrlCountry = "/img/home/bandera-nicaragua.png"
+      titleC = "Nicaragua"
+    break;
+    case "pm":
+      imgUrlCountry = "/img/home/bandera-panama.png"
+      titleC = "Panamá"
+    break;
+    case "dr":
+      imgUrlCountry = "/img/home/bandera-rep_dominicana.png"
+      titleC = "Rep. Dominicana"
+    break;
+  
+    default:
+      break;
+  }
+  console.log(imgUrlCountry)
   return (
     <div>
+      {/* {router.query.countryId} */}
       <Header />
       {/* <p>Country content for {router.query.countryId}.</p> */}
       <NavSecundaryCountries/>
       <Container>
         <Row className='d-flex justify-content-between'>
           <div className='col-lg-4'>
-            <FlagNameComponent icon={CrFlag}>Costa Rica</FlagNameComponent>
+            {/* <FlagNameComponent icon={imgUrlCountry}>{titleC}</FlagNameComponent> */}
+            <Row>
+              <Col sm={2} className="imgUrlCountry p-0">
+                <img src={imgUrlCountry} alt=""/>
+              </Col>
+              <Col className="titleC p-0">
+              <h2>{titleC}</h2>
+              </Col>
+            </Row>
           </div>
           <Row className='col-lg-8 d-flex justify-content-end p-0'>
             <div className='col-lg-2 pr-0'>
@@ -211,6 +263,19 @@ export default function Country() {
           </div>
         </Row>
       </Container>
+      <style type="text/css">{`
+      .imgUrlCountry img{
+        width: 50px;
+        height: 30px;
+        margin-top: 7px;
+      }
+      .titleC h2{
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        font-size: 2.5em;
+        color: #1D2D49;
+      }
+    `}</style>
     </div>
   )
 }
