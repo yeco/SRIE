@@ -15,6 +15,7 @@ const Layout = props => (
       crossorigin="anonymous"
     />
     
+    <script src="https://kit.fontawesome.com/93f079ed62.js" crossorigin="anonymous" ></script>
     </Head>
     {/* <Header /> */}
     <div className="content">{props.children}</div>

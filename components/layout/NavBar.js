@@ -1,20 +1,37 @@
 import Link from 'next/link'
 import { nav } from './../../pages/api/navbar'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import LinkChild from '../layout/LinkChild'
+
 export default class NavBar extends React.Component {
+  constructor(props) {    
+    super(props)
+    this.state = {
+      condition: false,
+      iconActive: "fas fa-times",
+      icon: "fas fa-bars"
+    }
+    
+  }
+  
+  updateCount() {
+    this.setState((prevState, props) => {
+      return {  condition: !this.state.condition }
+    });
+  }
+
   render() {
     const { path } = this.props
     
-    
-    
     return (
       <>
-        {path}
-        <Navbar expand='lg'>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar expand='md'>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' className={ this.state.condition ? this.state.iconActive : this.state.icon  } onClick={() => this.updateCount()}/>
+          
           <Navbar.Collapse
             id='basic-navbar-nav'
             className={path == '/' ? 'CName' : ''}
+            
           >
             <Nav className='mr-auto'>
               {nav.map((item, indexDrop) => {
@@ -23,26 +40,10 @@ export default class NavBar extends React.Component {
                     title={item.label}
                     id='basic-nav-dropdown'
                     key={`nav-drop-${indexDrop}`}
+                    
                   >
                     {item.items.map((item2, index) => (
-                      // <NavDropdown.Item
-                      //   key={`nav-${index}`}
-                      //   href={item2.href}
-                      //   className={path == item2.href ? 'CName-ative' : ''}
-                      // >
-                      //   {item2.label}
-                      // </NavDropdown.Item>
-                      // <Navbar.Text > 
-                      <Link
-                        href='/country/[countryId]'
-                        as={`/country/${item2.href}`}
-                        
-                      >
-                        <a className="nav-item-drop">
-                          {item2.label}
-                        </a>
-                      </Link>
-                      // </Navbar.Text>
+                      <LinkChild id={item2.id} href={item2.href} label={item2.label}/>
                     ))}
                   </NavDropdown>
                 )
@@ -90,8 +91,20 @@ export default class NavBar extends React.Component {
             a.CName-ative.dropdown-item{
                 text-decoration: underline #FBB03B;
             }
-            
+            .nav-collapse .open>.dropdown-menu{
+              display:block;
+               }
+               span.navbar-toggler-icon {
+                background-image: none;
+                width: 0;
+            }
+            .fa-times:before,.fa-bars:before {
+              color: white;
+              font-size: 1.5em;
+          }
+
         `}</style>
+        
       </>
     )
   }

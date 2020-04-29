@@ -14,7 +14,7 @@ const Home = props => (
     <div className="home">
       <Header path={props.pa}/>
         <Row className="justify-content-md-center px-sm-0">
-          <div className="col-sm-8">
+          <div className="col-sm-8 px-0">
             <InfoSlider />
             <CountrySelector countries={props.countries} />
           </div>

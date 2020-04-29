@@ -15,6 +15,7 @@ export default class extends React.Component {
         <Header path={pa} />
         <Container>
           <h2>Glosario</h2>
+          <p>Pronto disponible.</p>
         </Container>
         <style jsx>{``}</style>
       </>

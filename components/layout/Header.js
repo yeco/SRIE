@@ -8,12 +8,11 @@ const Header = props => (
   <div className="header">
     <Container>
       <Row className="justify-content-md-between">
-        <Col sm={3}>
+        <Col xs={{ order: 1 }} sm={3} >
           <Logo path={props.path} />
         </Col>
-        <Col sm="auto">
+        <Col xs={3} sm={{order:1,span:'auto'}} className="navbox">
           <NavBar path={props.path}/>
-          {/* <Navigation /> */}
         </Col>
       </Row>
     </Container>
@@ -24,6 +23,16 @@ const Header = props => (
         padding-top: 10px;
       }
     `}</style>
+
+    <style type="text/css">{`
+    @media (max-width: 575.98px) { 
+      
+      .navbar {
+        padding: 0;
+      }
+    }
+    `}</style>
+
   </div>
 );
 
