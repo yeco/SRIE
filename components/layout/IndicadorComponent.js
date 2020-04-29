@@ -17,7 +17,7 @@ const Title = styled.h3`
   font-size: 1.1em;
   color: ${txt};
 `
-const Tag = styled.h4`
+export const Tag = styled.h4`
   background-color: ${verde1};
   font-family: 'Raleway', sans-serif;
   padding: 5px;

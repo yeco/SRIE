@@ -8,13 +8,17 @@ const TextContainer = styled.h3`
       ? 'Roboto'
       : props.type === 'subtitle'
       ? 'Raleway'
+      : props.type === 'caption'
+      ? 'Raleway'
       : 'sans-serif'};
   font-size: ${(props) =>
     props.type === 'title'
       ? '1.7em'
       : props.type === 'subtitle'
-      ? '1em'
-      : 'sans-serif'};
+      ? '1.3em!important'
+      : props.type === 'caption'
+      ? '1.1em!important'
+      : '1em'};
   font-weight: bold;
   font-size: 1.5em;
 

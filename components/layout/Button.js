@@ -176,6 +176,10 @@ export const ButtonContainer = styled.button`
   transition: all ease-in 0.9s;
   width: 100%;
   color: white;
+  & div {
+    border-bottom: 10px solid white;
+  }
+
   &:hover div {
     border-bottom: 10px solid
       ${(props) =>
