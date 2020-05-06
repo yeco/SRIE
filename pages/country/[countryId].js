@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Header from '../../components/layout/Header'
 import NavSecundaryCountries from '../../components/layout/NavSecundaryCountries'
-import { Container, Col, Row } from 'react-bootstrap'
+import { Container, Col, Row, Breadcrumb } from 'react-bootstrap'
 import styled from 'styled-components'
 import Boxes from '../../components/layout/Boxes'
 
@@ -40,11 +40,17 @@ import MetasIcon from '../../public/img/home/icon_metas_indicador.svg'
 import CrFlag from '../../public/img/home/bandera-costa_rica.png'
 import FlagNameComponent from '../../components/layout/FlagNameComponent'
 import Title from '../../components/layout/Title'
+import { txt, azul1, azul2, verde } from '../../theme/colors'
 
 const ColNotPadding = styled(Col)`
   padding: 0;
 `
-
+const Divider = styled.span`
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid ${txt};
+  margin-top: 20px;
+`
 export default function Country() {
   const router = useRouter()
 
@@ -94,11 +100,21 @@ export default function Country() {
       {/* {router.query.countryId} */}
       <Header />
       {/* <p>Country content for {router.query.countryId}.</p> */}
-      
-        <Col className="d-none d-sm-block p-0" >
-        <NavSecundaryCountries idCountry={router.query.countryId} />
-        </Col>
-      
+      <Col className="d-none d-sm-block p-0" >
+      <NavSecundaryCountries idCountry={router.query.countryId} />
+      </Col>
+      <Container className='p-0'>
+        <Breadcrumb className='bg-white-ol'>
+          <Breadcrumb.Item className='bg-white' href='#'>
+            Inicio
+          </Breadcrumb.Item>
+          <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
+            {titleC}
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>Dato Pais</Breadcrumb.Item>
+        </Breadcrumb>
+      </Container>
+
       <Container className='mt-4'>
       <Boxes countryId={router.query.countryId} ></Boxes> 
         <hr/>
@@ -128,14 +144,15 @@ export default function Country() {
               <ButtonNav verde>AVANCE 2021</ButtonNav>
             </div>
           </Row>
+          <Divider />
         </Row>
         <Row className='mt-4'>
-          <div className='col-lg-12 mb-4 text-center'>
+          <div className='col-lg-12 mb-3 text-center'>
             <Title color='amarillo' type='title'>
               Datos pais
             </Title>
           </div>
-          <div className='col-lg-12 mb-3 p-0 text-center'>
+          <div className='col-lg-12 mb-4 p-0 text-center'>
             <Title color='negro' type='subtitle'>
               Estructura del sistema educativo del país
             </Title>
@@ -156,7 +173,7 @@ export default function Country() {
             <TitleLineTime />
           </div>
         </Row>
-        <Row className='mt-5 mb-5'>
+        <Row className='mt-4 mb-5'>
           <div className='col-lg-4 mb-4'>
             <Box
               iconImg={EducacionIcon}
@@ -210,7 +227,7 @@ export default function Country() {
           </div>
         </Row>
       </Container>
-      <Container fluid>
+      <Container fluid className='bg-verde-oscuro'>
         <Row>
           <div className='col-lg-12 p-0 m-0'>
             <Banner />
@@ -281,11 +298,23 @@ export default function Country() {
         
         margin-top: 3px;
       }
+      .bg-white-ol > ol {
+        background:white;
+        padding:0;
+      }
+      .bg-verde-oscuro {
+        background:${verde};
+      }
+      .bg-white-ol a {
+       
+        font-family: 'Roboto', sans-serif;
+        color: ${azul2};
+      }
       .titleC h2{
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 2.5em;
-        color: #1D2D49;
+        color: ${azul1};
       }
       
       .fa-times:before, .fa-bars:before {

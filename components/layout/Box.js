@@ -19,16 +19,18 @@ import {
   rosa,
   rosa_2,
   azul5_2,
+  txt,
 } from '../../theme/colors'
 import BannerIcon from '../../public/img/home/icon_cumplimiento_metas.svg'
 import arrow from '../../public/img/home/arrow-more-rollover.svg'
 
 const Title = styled.h3`
   width: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   font-size: 1.2em;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  color: ${txt};
 `
 const ContainerStyled = styled.div`
   display: flex;
@@ -38,8 +40,7 @@ const ContainerStyled = styled.div`
   background-color: ${gris1};
   padding: 30px 20px;
   width: 100%;
-  height: 250px;
-  min-height: 120px;
+  height: 230px;
 `
 const ContainerEducationStyled = styled.div`
   display: flex;
@@ -67,12 +68,15 @@ const ContainerEducationStyled = styled.div`
   padding: 0;
   width: 100%;
   min-height: 120px;
+
   & ${Title} {
-    padding: 3px 1px;
+    padding: 10px 1px;
+    margin-bottom: 0;
     text-transform: uppercase;
     text-align: center;
-    color: black;
-    font-weight: 400;
+    color: ${txt};
+    font-weight: 500;
+    font-size: 1.1em;
   }
 `
 const ContainerIndicadorStyled = styled.div`
@@ -83,8 +87,7 @@ const ContainerIndicadorStyled = styled.div`
   background-color: ${gris1};
   padding: 10px 11px;
   width: 100%;
-  height: 250px;
-  min-height: 120px;
+  height: 230px;
 `
 const TextContainer = styled.div`
   display: flex;
@@ -97,6 +100,7 @@ const IconContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 10px;
 `
 const Icon = styled.div`
   width: 80px;
@@ -159,6 +163,7 @@ const IndicadorContainer = styled.div`
   text-align: center;
   padding: 40px 8px;
   width: 24%;
+  height: 70px;
   box-sizing: content-box;
   margin-right: 10px;
   background-color: ${(props) =>
@@ -207,7 +212,8 @@ const SectionContainer = styled.div`
     margin: 0;
     color: white;
     width: 100%;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    padding: 0 10px;
   }
   & p {
     margin: 0;
@@ -254,15 +260,15 @@ export const BoxIndicador = ({ title, prescolar, primaria, secundaria }) => (
 export const BoxPreescolar = ({ title, prescolar, primaria, secundaria }) => (
   <ContainerEducationStyled color='rosa'>
     <Title>{title}</Title>
-    <SectionContainer color='#fc9999' width='32.5%'>
+    <SectionContainer color='#fc9999' width='33.2%'>
       <h3>Grupo interactivo</h3>
       <p>1</p>
     </SectionContainer>
-    <SectionContainer color='#fb8080' width='32.5%'>
+    <SectionContainer color='#fb8080' width='33%'>
       <h3>Grupo interactivo</h3>
       <p>2</p>
     </SectionContainer>
-    <SectionContainer color='#bc6060' width='32.5%'>
+    <SectionContainer color='#bc6060' width='33.1%'>
       <p> Transicion</p>
     </SectionContainer>
   </ContainerEducationStyled>
@@ -273,16 +279,16 @@ export const BoxPrimaria = ({ title, prescolar, primaria, secundaria }) => (
     <SectionContainer color='#afd188' width='16%'>
       <p>1º</p>
     </SectionContainer>
-    <SectionContainer color='#95c161' width='16%'>
+    <SectionContainer color='#95c161' width='17%'>
       <p>2º</p>
     </SectionContainer>
-    <SectionContainer color='#7ab239' width='16%'>
+    <SectionContainer color='#7ab239' width='17%'>
       <p>3º</p>
     </SectionContainer>
-    <SectionContainer color='#5c852b' width='16%'>
+    <SectionContainer color='#5c852b' width='17%'>
       <p>4º</p>
     </SectionContainer>
-    <SectionContainer color='#3d591d' width='16%'>
+    <SectionContainer color='#3d591d' width='17%'>
       <p>5º</p>
     </SectionContainer>
     <SectionContainer color='#324914' width='16%'>
@@ -299,16 +305,16 @@ export const BoxSecundaria = ({ title, prescolar, primaria, secundaria }) => (
     <SectionContainer color='#338dc9' width='16%'>
       <p>8º</p>
     </SectionContainer>
-    <SectionContainer color='#0071bc' width='16%'>
+    <SectionContainer color='#0071bc' width='17%'>
       <p>9º</p>
     </SectionContainer>
-    <SectionContainer color='#00558d' width='16%'>
+    <SectionContainer color='#00558d' width='17%'>
       <p>10º</p>
     </SectionContainer>
-    <SectionContainer color='#00395e' width='16%'>
+    <SectionContainer color='#00395e' width='17%'>
       <p>11º</p>
     </SectionContainer>
-    <SectionContainer color='#032d44' width='16%'>
+    <SectionContainer color='#032d44' width='17%'>
       <p>12º</p>
     </SectionContainer>
   </ContainerEducationStyled>

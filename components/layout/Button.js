@@ -133,7 +133,7 @@ export const ButtonNavIndicadores = styled.button`
   border-radius: 20px;
   text-align: left;
   text-transform: uppercase;
-  padding: 10px 18px 10px 20px;
+  padding: 5px 18px 5px 20px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 14px;
@@ -171,11 +171,17 @@ export const ButtonContainer = styled.button`
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  text-align: left;
+
   font-size: 14px;
   cursor: pointer;
   transition: all ease-in 0.9s;
   width: 100%;
   color: white;
+  & div {
+    border-bottom: 10px solid white;
+  }
+
   &:hover div {
     border-bottom: 10px solid
       ${(props) =>
@@ -214,7 +220,7 @@ export const IconContainer = styled.div`
       ? rosa
       : undefined};
   margin-right: 5px;
-  padding: 10px 15px;
+  padding: 20px 20px;
   & img {
     width: 31px;
     height: 31px;
@@ -237,6 +243,8 @@ export const TextContainer = styled.div`
       : props.color === 'rosa'
       ? rosa
       : undefined};
-  padding: 15px 15px;
+  text-transform: capitalize;
+  font-size: 1.2em;
+  padding: 23px 15px;
   width: 100%;
 `
