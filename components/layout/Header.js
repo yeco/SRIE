@@ -18,10 +18,7 @@ const Header = props => (
     </Container>
 
     <style jsx>{`
-      .header {
-        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-        padding-top: 10px;
-      }
+      
     `}</style>
 
     <style type="text/css">{`

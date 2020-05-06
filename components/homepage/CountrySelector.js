@@ -16,7 +16,7 @@ export default function CountrySelector(props) {
 
     <style jsx>{`
     .country-selector {
-    background-color: #044A95;
+    {/* background-color: #044A95; */}
     }
     `}</style>
   </div>

@@ -4,6 +4,7 @@ import Header from '../../components/layout/Header'
 import NavSecundaryCountries from '../../components/layout/NavSecundaryCountries'
 import { Container, Col, Row } from 'react-bootstrap'
 import styled from 'styled-components'
+import Boxes from '../../components/layout/Boxes'
 
 import {
   ButtonNav,
@@ -52,35 +53,35 @@ export default function Country() {
   let titleC = ''
   switch (router.query.countryId) {
     case 'bh':
-      imgUrlCountry = '/img/home/bandera-belice.png'
+      imgUrlCountry = '/img/home/flag_bel_titulo.svg'
       titleC = 'Belice'
       break
     case 'cr':
-      imgUrlCountry = '/img/home/bandera-costa_rica.png'
+      imgUrlCountry = '/img/home/flag_cr_titulo.svg'
       titleC = 'Costa Rica'
       break
     case 'es':
-      imgUrlCountry = '/img/home/bandera-el_salvador.png'
+      imgUrlCountry = '/img/home/flag_elsalv_titulo.svg'
       titleC = 'El Salvador'
       break
     case 'gt':
-      imgUrlCountry = '/img/home/bandera-guatemala.png'
+      imgUrlCountry = '/img/home/flag_guat_titulo.svg'
       titleC = 'Guatemala'
       break
     case 'ho':
-      imgUrlCountry = '/img/home/bandera-honduras.png'
+      imgUrlCountry = '/img/home/flag_hond_tiutlo.svg'
       titleC = 'Honduras'
       break
     case 'nu':
-      imgUrlCountry = '/img/home/bandera-nicaragua.png'
+      imgUrlCountry = '/img/home/flag_nic_titulo.svg'
       titleC = 'Nicaragua'
       break
     case 'pm':
-      imgUrlCountry = '/img/home/bandera-panama.png'
+      imgUrlCountry = '/img/home/flag-pana_titulo.svg'
       titleC = 'Panamá'
       break
     case 'dr':
-      imgUrlCountry = '/img/home/bandera-rep_dominicana.png'
+      imgUrlCountry = '/img/home/flag_rep_titulo.svg'
       titleC = 'Rep. Dominicana'
       break
 
@@ -93,16 +94,22 @@ export default function Country() {
       {/* {router.query.countryId} */}
       <Header />
       {/* <p>Country content for {router.query.countryId}.</p> */}
-      <NavSecundaryCountries idCountry={router.query.countryId} />
+      
+        <Col className="d-none d-sm-block p-0" >
+        <NavSecundaryCountries idCountry={router.query.countryId} />
+        </Col>
+      
       <Container className='mt-4'>
+      <Boxes countryId={router.query.countryId} ></Boxes> 
+        <hr/>
         <Row className='d-flex justify-content-between'>
           <div className='col-lg-4'>
             {/* <FlagNameComponent icon={imgUrlCountry}>{titleC}</FlagNameComponent> */}
             <Row>
-              <Col sm={2} className='imgUrlCountry p-0'>
+              <Col sm={2} className='d-none d-sm-block imgUrlCountry p-0'>
                 <img src={imgUrlCountry} alt='' />
               </Col>
-              <Col className='titleC p-0'>
+              <Col className='titleC psm-0'>
                 <h2>{titleC}</h2>
               </Col>
             </Row>
@@ -270,15 +277,29 @@ export default function Country() {
       </Container>
       <style type='text/css'>{`
       .imgUrlCountry img{
-        width: 50px;
-        height: 30px;
-        margin-top: 7px;
+        width: 100%;
+        
+        margin-top: 3px;
       }
       .titleC h2{
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 2.5em;
         color: #1D2D49;
+      }
+      
+      .fa-times:before, .fa-bars:before {
+        color: #cecece;
+      }
+      .header {
+        border-bottom: 2px solid #cecece;
+        padding-top: 10px;
+      }
+    `}</style>
+    <style jsx>{`
+    .header {
+        border-bottom: 2px solid #cecece;
+        padding-top: 10px;
       }
     `}</style>
     </div>

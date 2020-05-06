@@ -95,13 +95,19 @@ export default class NavBar extends React.Component {
               display:block;
                }
                span.navbar-toggler-icon {
-                background-image: none;
-                width: 0;
+              background-image: none;
+                 width: 0;
+            }
+            .navbar-light .navbar-toggler {
+                color: rgba(0,0,0,.5);
+                border: none;
+                margin: 9px auto 0 auto;
             }
             .fa-times:before,.fa-bars:before {
-              color: white;
+              /*color: white;*/
               font-size: 1.5em;
           }
+          
 
         `}</style>
         

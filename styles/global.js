@@ -24,8 +24,13 @@ export default css.global`
       height:21em;
     }
   @media (max-width: 576px) { 
+    .country-selector{
+      
+      background-color: #044A95;
+    }
     .country-selector a{
       font-size: 0.7em;
+      
     }
     .home .row,.row.slider-box{
     margin 0;
