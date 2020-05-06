@@ -1,16 +1,17 @@
 import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
-import { verde } from '../../theme/colors'
+import { verde_roll, gris1 } from '../../theme/colors'
 import BannerIcon from '../../public/img/home/icon_cumplimiento_metas.svg'
+import ArrowIcon from '../../public/img/home/arrow_indicadores.svg'
 
 const ContainerStyled = styled.div`
   display: flex;
   justify-content: center;
-  background-color: ${verde};
+  background-color: ${verde_roll};
   color: white;
   height: 200px;
-  padding: 25px 60px;
+  padding: 25px 0;
   & h3 {
     font-size: 1.4em;
   }
@@ -39,23 +40,47 @@ const IconContainer = styled.div`
     width: 150px;
   }
 `
+const Arrow = styled.div`
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  &:after {
+    content: '';
+    display: block;
+    -webkit-mask-image: url(${ArrowIcon});
+    mask-image: url(${ArrowIcon});
+    background-color: ${gris1};
+    background-size: 20px;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+  }
+`
 export default class Banner extends React.Component {
   render() {
     return (
-      <ContainerStyled>
-        <TextContainer>
-          <h3>
-            Conozca el avance en el{' '}
-            <span>
-              Cumplimiento de Metas Política Educativa Centroamericana
-            </span>
-          </h3>
-        </TextContainer>
+      <Container>
+        <ContainerStyled>
+          <TextContainer>
+            <h3>
+              Conozca el avance en el{' '}
+              <span>
+                Cumplimiento de Metas Política Educativa Centroamericana
+              </span>
+            </h3>
+          </TextContainer>
 
-        <IconContainer>
-          <img src={BannerIcon} alt='icon' />
-        </IconContainer>
-      </ContainerStyled>
+          <IconContainer>
+            <img src={BannerIcon} alt='icon' />
+          </IconContainer>
+          <Arrow />
+        </ContainerStyled>
+      </Container>
     )
   }
 }

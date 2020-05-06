@@ -5,7 +5,7 @@ import { azul1, amarillo, verde, txt } from '../../theme/colors'
 const TextContainer = styled.h3`
   font-family: ${(props) =>
     props.type === 'title'
-      ? 'Roboto'
+      ? 'Roboto Slab'
       : props.type === 'subtitle'
       ? 'Raleway'
       : props.type === 'caption'
@@ -15,7 +15,7 @@ const TextContainer = styled.h3`
     props.type === 'title'
       ? '1.7em'
       : props.type === 'subtitle'
-      ? '1.3em!important'
+      ? '1.2em!important'
       : props.type === 'caption'
       ? '1.1em!important'
       : '1em'};

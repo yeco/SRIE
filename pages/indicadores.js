@@ -155,9 +155,11 @@ export default class extends React.Component {
               </Row>
             </div>
             {array.map((item, index) => (
-              <div className='col-lg-12 mb-3' key={`indicador-${index}`}>
-                <IndicadorComponent>asd</IndicadorComponent>
-              </div>
+              <Link href='/equipo-responsable' as={`equipo-responsable`}>
+                <div className='col-lg-12 mb-3' key={`indicador-${index}`}>
+                  <IndicadorComponent>asd</IndicadorComponent>
+                </div>
+              </Link>
             ))}
           </Row>
         </Container>
