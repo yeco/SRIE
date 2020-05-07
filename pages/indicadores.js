@@ -44,6 +44,7 @@ export default class extends React.Component {
         <Container>
           <Row className='d-flex justify-content-betweent mt-5 mb-5'>
             <div className='col-lg-4 '>
+            {pa}
               <FlagNameComponent icon={CrFlag}>Costa Rica</FlagNameComponent>
             </div>
             <Row className='col-lg-8 d-flex justify-content-end p-0'>
