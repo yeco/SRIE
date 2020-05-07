@@ -16,7 +16,7 @@ import NavSecundaryCountries from '../components/layout/NavSecundaryCountries'
 import Title from '../components/layout/Title'
 import PecIcon from '../public/img/home/icon_pec_indicadores.svg'
 import styled from 'styled-components'
-import { txt } from '../theme/colors'
+import { txt, azul1 } from '../theme/colors'
 
 const IconImg = styled.img`
   width: 18px;
@@ -108,16 +108,15 @@ export default class extends React.Component {
           </Row>
         </Container>
         <Container fluid>
-          <Row className='mt-5 mb-5 bg-light pt-4 pb-2'>
+          <Row className='mt-5 mb-5 bg-light pt-2 pb-0'>
             <Container>
               <Row>
-                <div className='col-lg-12 mb-3'>
-                  <Title color='azul' type='subtitle'>
-                    Resultados de la búsqueda por tema:
-                  </Title>
+                <div className='col-lg-12 mb-1'>
+                  Resultados de la búsqueda por:
                 </div>
                 <div className='col-lg-12 mb-3'>
-                  <Tag>Participación</Tag>
+                  Meta Pec: <strong>Participación</strong> / Nivel:
+                  <strong> Primaria</strong>
                 </div>
               </Row>
             </Container>
@@ -130,12 +129,12 @@ export default class extends React.Component {
                 Indicadores Educativos
               </Title>
             </div>
-            <div className='col-lg-2 mb-3'>
+            <div className='col-lg-3 mb-3'>
               <Row className='d-flex align-content-center'>
                 <div className='col-lg-2 m-0 p-0'>
                   <IconImg src={PecIcon} />
                 </div>
-                <div className='col-lg-8'>
+                <div className='col-lg-8 m-0 p-0'>
                   <Title color='negro' type='caption'>
                     PEC
                   </Title>
@@ -147,7 +146,7 @@ export default class extends React.Component {
                 <div className='col-lg-2 m-0 p-0'>
                   <IconImg src={PecIcon} />
                 </div>
-                <div className='col-lg-8'>
+                <div className='col-lg-8 m-0 p-0'>
                   <Title color='negro' type='caption'>
                     ODS 4
                   </Title>
@@ -156,7 +155,7 @@ export default class extends React.Component {
             </div>
             {array.map((item, index) => (
               <Link href='/equipo-responsable' as={`equipo-responsable`}>
-                <div className='col-lg-12 mb-3' key={`indicador-${index}`}>
+                <div className='col-lg-12 mb-3 p-0' key={`indicador-${index}`}>
                   <IndicadorComponent>asd</IndicadorComponent>
                 </div>
               </Link>

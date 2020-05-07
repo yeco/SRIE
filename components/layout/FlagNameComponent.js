@@ -21,6 +21,7 @@ const TextContainer = styled.div`
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 2.5em;
+  text-transform: uppercase;
   color: ${azul1};
 `
 const FlagNameComponent = ({ children, icon }) => (

@@ -68,7 +68,7 @@ export default class Banner extends React.Component {
         <ContainerStyled>
           <TextContainer>
             <h3>
-              Conozca el avance en el{' '}
+              Conozca el avance en el
               <span>
                 Cumplimiento de Metas Política Educativa Centroamericana
               </span>
