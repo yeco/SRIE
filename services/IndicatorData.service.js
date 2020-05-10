@@ -1,26 +1,55 @@
 const db = require("express-http-context").get("db");
 
 import _ from "lodash";
+import FilterUtils from "../utils/Filter.utils";
+
+import IndicatorService from "./Indicator.service";
+import IndicatorVariationService from "./IndicatorVariation.service";
+import IndicatorVizualizationService from "./IndicatorVizualization.service";
+import IndicatorIndexService from "./IndicatorIndex.service";
+
+const find = async (query) => {
+  const allFields = [
+    "unit_measure",
+    "edu_level",
+    "sex",
+    "wealth_quintile",
+    "location"
+  ].concat(fields);
+
+  return db.uis_data.find(query, {
+    fields: allFields
+  });
+};
 
 export default {
-  find: async (query) => {
-    let fields = [
-      "unit_measure",
-      "edu_level",
-      "sex",
-      "wealth_quintile",
-      "location",
-      "time_period",
-      "obs_value",
-      "unit_mult",
-      "obs_status",
-      "freq",
-      "decimals",
-    ];
+  find: find,
 
-    return await db.uis_data.find(query, {
-      fields,
-    });
+  findByIndicatorId: async (id, country) => {
+    const indicator = await IndicatorService.findById(id);
+    indicator.variations = await IndicatorVariationService.findByIndicatorId(
+      id
+    );
+
+    const rawData = await find(
+      _.assign(indicator.query, { ref_area: country.toUpperCase() })
+    );
+
+    let dataPromise = filterDataByVariation(
+      indicator.variations,
+      indicator.code,
+      rawData
+    );
+
+    const visualizationsPromise = IndicatorVizualizationService.findByIndicatorId(
+      id
+    );
+
+    const indexesPromise = IndicatorIndexService.findByIndicatorId(id);
+
+    const [ data, visualizations, indexes ] = await Promise.all([dataPromise, visualizationsPromise, indexesPromise]);
+
+    return await filterData(data, visualizations, indexes);
   },
 
   getFreeEducationYearsByCountry: async (country) => {
@@ -210,4 +239,108 @@ const filterAndGetLatest = (data, filters, maxTimePeriod) => {
   }
 
   return maxData[0];
+};
+
+/**
+ * Filter data by the indicator variations
+ *
+ * @param {array} variations Indicator variations
+ * @param {string} indicatorCode Indicator code
+ * @param {array} rawData Raw data from the database
+ */
+const filterDataByVariation = async (variations, indicatorCode, rawData) => {
+  let data = {};
+
+  if (variations.length > 0) {
+    variations.forEach(async (variation) => {
+      data[indicatorCode + "." + variation.code] = _.filter(
+        rawData,
+        variation.query
+      );
+    });
+  } else {
+    data[indicatorCode] = rawData;
+  }
+
+  return data;
+};
+
+/**
+ * Filters the data by every possible index or visualization
+ *
+ * @param {array} data The data separated by indicator variation
+ * @param {array} visualizations The list of possible visualizations
+ * @param {array} indexes The list of possible indexes
+ *
+ * @returns {object} Returns the data filterd by visualizations and views
+ */
+const filterData = async (data, visualizations, indexes) => {
+  let dataByViews = {};
+
+  Object.keys(data).forEach(async (code) => {
+    dataByViews[code] = {};
+    dataByViews[code].visualizations = await filterDataByView(
+      visualizations,
+      data[code]
+    );
+    dataByViews[code].indexes = await filterDataByView(
+      _.map(indexes, (i) => _.assign(i, { label: "unit_measure" })),
+      data[code]
+    );
+  });
+
+  return dataByViews;
+};
+
+/**
+ * Filter data by view
+ *
+ * @param {array} viewList It could be a visualization or an index list
+ * @param {array} data Indicator data
+ *
+ * @returns {object} Returns complete data by view
+ */
+const filterDataByView = async (viewList, data) => {
+  let dataByView = {};
+
+  viewList.forEach(async (view) => {
+    const filteredData = FilterUtils.filter(data, view.query);
+
+    dataByView[view.code] = await filterHistoricalData(
+      _.map(filteredData, (item) => {
+        return _.assign(
+          { label: `${view.label_root || "indexes"}.${item[view.label]}` },
+          _.omit(
+            item,
+            "unit_measure",
+            "edu_level",
+            "sex",
+            "wealth_quintile",
+            "location"
+          )
+        );
+      })
+    );
+  });
+
+  return dataByView;
+};
+
+/**
+ * Filter data by time period
+ *
+ * @param {array} data Array of data
+ *
+ * @returns {object} Returns historical data and latest year data
+ */
+const filterHistoricalData = async (data) => {
+  let historicalData = {};
+  historicalData["historical"] = data;
+
+  const max = _.maxBy(data, "time_period");
+  historicalData["latest"] = data.length
+    ? _.filter(data, { time_period: max.time_period })
+    : data;
+
+  return historicalData;
 };
