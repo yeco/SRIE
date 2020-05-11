@@ -3,6 +3,7 @@ import NavBar from "../layout/NavBar";
 // import Navigation from "../layout/Navigation";
 import Logo from "../layout/Logo";
 import { Container, Row, Col } from "react-bootstrap";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = props => (
   <div className="header">
@@ -17,6 +18,7 @@ const Header = props => (
       </Row>
     </Container>
 
+    <LanguageSelector />
     <style jsx>{`
       .header {
         border-bottom: 2px solid rgba(255, 255, 255, 0.3);

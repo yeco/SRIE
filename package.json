@@ -3,18 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+<<<<<<< HEAD
     "bootstrap": "^4.4.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.3.0",
     "next-images": "^1.4.0",
     "pg": "^7.18.2",
+=======
+    "db-migrate": "^0.11.6",
+    "db-migrate-pg": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-http-context": "^1.2.3",
+    "isomorphic-unfetch": "^3.0.0",
+    "lodash": "^4.17.15",
+    "massive": "^6.2.0",
+    "next": "^9.3.4",
+    "next-connect": "^0.6.0",
+    "next-i18next": "^4.2.1",
+>>>>>>> a5bc678bba29d64d69351fddcbbceb2316dc144f
     "react": "16.13.0",
     "react-bootstrap": "^1.0.0",
     "react-dom": "16.13.0",

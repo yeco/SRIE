@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const withImages = require('next-images')
 module.exports = withImages()
 
@@ -14,3 +15,10 @@ module.exports = withImages()
 //     return config
 //   },
 // }
+=======
+const dotenv = require("dotenv").config();
+
+module.exports = {
+  env: dotenv.parsed
+};
+>>>>>>> a5bc678bba29d64d69351fddcbbceb2316dc144f
