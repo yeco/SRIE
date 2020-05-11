@@ -1,61 +1,56 @@
-import Link from "next/link";
-import { Row, Col, Container } from "react-bootstrap";
-import styled from "styled-components";
-import { countries } from "./../../pages/api/countries-data";
-import CountryItem from "../homepage/CountryItem";
+import Link from 'next/link'
+import { Row, Col, Container } from 'react-bootstrap'
+import styled from 'styled-components'
+import { countries } from './../../pages/api/countries-data'
+import CountryItem from '../homepage/CountryItem'
 
 // console.log(countries);
 
 export default class NavSecundaryCountries extends React.Component {
   render() {
-    const { path, idCountry } = this.props;
+    const { path, idCountry } = this.props
 
     const mystyle = {
-        color: "white",
-        backgroundColor: "DodgerBlue",
-        padding: "10px",
-        fontFamily: "Arial"
-      };
-      
+      color: 'white',
+      backgroundColor: 'DodgerBlue',
+      padding: '10px',
+      fontFamily: 'Arial',
+    }
 
     return (
       <>
-      
-      <div className="box_linkC">
-      <Container>
-      <Row>
-      <Col sm={5}>
-        <p className="p-select text-right">Seleccione otro país que desee consultar:</p>
-    </Col>
-    <Col sm={7} className="d-flex">
-        {
-            countries.map(country => {
-                return (
-                <>
-                    
-                        
-                        
-                            <Link
-                                href="/country/[countryId]"
-                                as={`${country.countryId}`}
-                                
-                            >
-                                <a title={country.title} id={`link_${country.countryId}` } className={`linkCountry active_${idCountry}`}>
-                                {/* backgroundimage: url(); */}
-                                {/* <img src={country.img} /> */}
-                                <span className="cy-link">{country.title}</span>
-                                </a>
-                            </Link>
-                    
-                    
-                </>
-                )
-            })
-            }
-        </Col>
-        </Row>
-        </Container>
-        <style type="text/css">{`
+        <div className='box_linkC'>
+          <Container>
+            <Row>
+              <Col sm={5}>
+                <p className='p-select text-right'>
+                  Seleccione otro país que desee consultar:
+                </p>
+              </Col>
+              <Col sm={7} className='d-flex'>
+                {countries.map((country) => {
+                  return (
+                    <Link
+                      href='/country/[countryId]'
+                      as={`${country.countryId}`}
+                      key={country.countryId}
+                    >
+                      <a
+                        title={country.title}
+                        id={`link_${country.countryId}`}
+                        className={`linkCountry active_${idCountry}`}
+                      >
+                        {/* backgroundimage: url(); */}
+                        {/* <img src={country.img} /> */}
+                        <span className='cy-link'>{country.title}</span>
+                      </a>
+                    </Link>
+                  )
+                })}
+              </Col>
+            </Row>
+          </Container>
+          <style type='text/css'>{`
         .p-select {
             color: #1D2D49;
             line-height: 46px;
@@ -139,7 +134,7 @@ export default class NavSecundaryCountries extends React.Component {
             `}</style>
         </div>
       </>
-    );
+    )
   }
 }
 // xs={12} sm={2}

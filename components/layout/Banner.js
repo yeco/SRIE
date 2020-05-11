@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
-import { verde_roll, gris1 } from '../../theme/colors'
+import { verde_roll, gris1 } from '../../styles/colors'
 import BannerIcon from '../../public/img/home/icon_cumplimiento_metas.svg'
 import ArrowIcon from '../../public/img/home/arrow_indicadores.svg'
 

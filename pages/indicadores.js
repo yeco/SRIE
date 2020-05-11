@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Header from '../components/layout/Header'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Breadcrumb } from 'react-bootstrap'
 
 import {
   ButtonNav,
@@ -41,6 +41,17 @@ export default class extends React.Component {
       <>
         <Header path={pa} />
         <NavSecundaryCountries />
+        <Container className='p-0'>
+          <Breadcrumb className='bg-white-ol'>
+            <Breadcrumb.Item className='bg-white' href='#'>
+              Inicio
+            </Breadcrumb.Item>
+            <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
+              Costa Rica
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>Indicadores Educativos</Breadcrumb.Item>
+          </Breadcrumb>
+        </Container>
         <Container>
           <Row className='d-flex justify-content-betweent mt-5 mb-5'>
             <div className='col-lg-4 '>
@@ -52,7 +63,9 @@ export default class extends React.Component {
               </div>
 
               <div className='col-lg-3 pr-0'>
-                <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
+                <ButtonNav azul active>
+                  INDICADORES EDUCATIVOS
+                </ButtonNav>
               </div>
               <div className='col-lg-2 pr-0'>
                 <ButtonNav verde>AVANCE 2021</ButtonNav>
@@ -162,6 +175,17 @@ export default class extends React.Component {
             ))}
           </Row>
         </Container>
+        <style type='text/css'>{`
+      .imgUrlCountry img{
+        width: 50px;
+        height: 30px;
+        margin-top: 7px;
+      }
+      .bg-white-ol > ol {
+        background:white;
+        padding:0;
+      }
+    `}</style>
       </>
     )
   }

@@ -16,7 +16,7 @@ import {
   rosa,
   rosa_2,
   azul5_2,
-} from '../../theme/colors'
+} from '../../styles/colors'
 import arrow from '../../public/img/home/arrow-more-rollover.svg'
 //TODO: importar libreria de colores
 
@@ -26,12 +26,18 @@ export const ButtonNav = styled.button`
   width: 100%;
   border-bottom: 10px solid
     ${(props) =>
-      props.azul
+      props.active && props.azul
         ? azull_roll
-        : props.verde
+        : props.active && props.verde
         ? verde_roll
-        : props.amarillo
+        : props.active && props.amarillo
         ? amarillo_roll
+        : props.azul
+        ? azul
+        : props.verde
+        ? verde
+        : props.amarillo
+        ? amarillo
         : undefined};
   text-transform: uppercase;
   padding: 10px 0;

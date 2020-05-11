@@ -20,7 +20,7 @@ import {
   rosa_2,
   azul5_2,
   txt,
-} from '../../theme/colors'
+} from '../../styles/colors'
 import BannerIcon from '../../public/img/home/icon_cumplimiento_metas.svg'
 import arrow from '../../public/img/home/arrow-more-rollover.svg'
 

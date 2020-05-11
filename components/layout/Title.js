@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { azul1, amarillo, verde, txt } from '../../theme/colors'
+import { azul1, amarillo, verde, txt } from '../../styles/colors'
 
 const TextContainer = styled.h3`
   font-family: ${(props) =>

@@ -18,7 +18,7 @@ import {
   rosa,
   rosa_2,
   azul5_2,
-} from '../../theme/colors'
+} from '../../styles/colors'
 const LineContainer = styled.div`
   font-weight: 400;
   display: flex;
@@ -46,29 +46,25 @@ const LineTitle = styled.div`
   text-align: center;
   font-size: 0.9em;
 `
-const LineColumn = styled.div``
-export const LineTime = ({ title, prescolar, primaria, secundaria }) => (
+
+export const LineTime = ({ timeLineEducationProps }) => (
   <LineContainer>
-    <Line color='#fb8080' width='21.5%'></Line>
-    <Line color='#bc6060' width='10.6%'></Line>
-    <Line color='#7ab239' width='50%'></Line>
-    <Line color='#0071bc' width='15.1%'></Line>
+    {timeLineEducationProps.map((item, index) => (
+      <Line color={item.color} width={item.width} key={`line-${index}`}></Line>
+    ))}
   </LineContainer>
 )
 
-export const TitleLineTime = ({ title, prescolar, primaria, secundaria }) => (
+export const TitleLineTime = ({ timeLineEducationProps }) => (
   <LineContainer>
-    <LineTitle color='#fb8080' width='21.5%'>
-      Materno infantil
-    </LineTitle>
-    <LineTitle color='#bc6060' width='10.6%'>
-      Preescolar
-    </LineTitle>
-    <LineTitle color='#7ab239' width='50%'>
-      Educación general básica
-    </LineTitle>
-    <LineTitle color='#0071bc' width='15.1%'>
-      Educación diversificada
-    </LineTitle>
+    {timeLineEducationProps.map((item, index) => (
+      <LineTitle
+        color={item.color}
+        width={item.width}
+        key={`LineTitle-${index}`}
+      >
+        {item.title}
+      </LineTitle>
+    ))}
   </LineContainer>
 )

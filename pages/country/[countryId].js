@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Header from '../../components/layout/Header'
+
 import NavSecundaryCountries from '../../components/layout/NavSecundaryCountries'
 import { Container, Col, Row, Breadcrumb } from 'react-bootstrap'
 import styled from 'styled-components'
@@ -11,7 +12,6 @@ import {
   ButtonNavIndicadores,
 } from '../../components/layout/Button'
 import ButtonWithIcon from '../../components/layout/ButtonWithIcon'
-
 import {
   Box,
   BoxIndicador,
@@ -19,13 +19,14 @@ import {
   BoxPrimaria,
   BoxSecundaria,
 } from '../../components/layout/Box'
+
 import Banner from '../../components/layout/Banner'
 import {
   LineTime,
   TitleLineTime,
 } from '../../components/layout/TimeLineEducation'
-
 import EducacionIcon from '../../public/img/home/icon_datos_educ.svg'
+
 import AlfabetizacionIcon from '../../public/img/home/icon_datos_alfabetizacion.svg'
 import CentroseducIcon from '../../public/img/home/icon_datos_centroseduc.svg'
 import DatoNinoIcon from '../../public/img/home/icono_datos_niños.svg'
@@ -33,13 +34,17 @@ import DatoNinoIcon from '../../public/img/home/icono_datos_niños.svg'
 import ParticipacionIcon from '../../public/img/home/icon_participacion_indicador.svg'
 import OfertaIcon from '../../public/img/home/icon_oferta_indicador.svg'
 import AprendizajeIcon from '../../public/img/home/icon_aprendizaje_indicador.svg'
+
 import ConclusionIcon from '../../public/img/home/icon_conclusion_indicador.svg'
 import EntornoIcon from '../../public/img/home/icon_entorno_indicador.svg'
 import MetasIcon from '../../public/img/home/icon_metas_indicador.svg'
+
 import CrFlag from '../../public/img/home/bandera-costa_rica.png'
 import FlagNameComponent from '../../components/layout/FlagNameComponent'
 import Title from '../../components/layout/Title'
-import { txt, azul1, azul2, verde } from '../../theme/colors'
+
+import { txt, azul1, azul2, verde } from '../../styles/colors'
+import { timeLineEducationProps } from './data'
 
 const ColNotPadding = styled(Col)`
   padding: 0;
@@ -93,7 +98,7 @@ export default function Country() {
     default:
       break
   }
-  // console.log(imgUrlCountry)
+
   return (
     <div>
       {/* {router.query.countryId} */}
@@ -127,7 +132,9 @@ export default function Country() {
           </div>
           <Row className='col-lg-8 d-flex justify-content-end p-0'>
             <div className='col-lg-2 pr-0'>
-              <ButtonNav amarillo>Dato Pais </ButtonNav>
+              <ButtonNav amarillo active>
+                Dato Pais
+              </ButtonNav>
             </div>
 
             <div className='col-lg-3 pr-0'>
@@ -162,10 +169,10 @@ export default function Country() {
             <BoxSecundaria title='SECUNDARIA' />
           </div>
           <div className='col-lg-12 m-0 p-0'>
-            <LineTime />
+            <LineTime timeLineEducationProps={timeLineEducationProps} />
           </div>
           <div className='col-lg-12 m-0 p-0'>
-            <TitleLineTime />
+            <TitleLineTime timeLineEducationProps={timeLineEducationProps} />
           </div>
         </Row>
         <Row className='mt-4 mb-5'>
@@ -309,6 +316,7 @@ export default function Country() {
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 2.5em;
+        text-transform: uppercase;
         color: ${azul1};
       }
     `}</style>

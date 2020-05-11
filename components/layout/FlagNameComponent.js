@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { azul1 } from '../../theme/colors'
+import { azul1 } from '../../styles/colors'
 
 const Container = styled.div`
   display: flex;
