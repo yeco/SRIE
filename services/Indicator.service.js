@@ -2,12 +2,7 @@ const db = require("express-http-context").get("db");
 
 import _ from "lodash";
 
-import FilterUtils from "../utils/Filter.utils";
-
 import IndicatorVariationService from "./IndicatorVariation.service";
-import IndicatorVizualizationService from "./IndicatorVizualization.service";
-import IndicatorIndexService from "./IndicatorIndex.service";
-import IndicatorDataService from "./IndicatorData.service";
 
 export default {
   /**
@@ -19,53 +14,19 @@ export default {
    */
   search: async (pec_goal, topic, educational_level) => {
     const where = getSearchWhere(pec_goal, topic, educational_level);
-    const sql = `SELECT i.id as indicator_id, i.translation_key as indicator_translation_key, i.code as indicator_code,
-                     pg.id as pec_goal_id,
-                     pg.code as pec_goal,
-                     t.id as topic_id,
-                     t.translation_key as topic,
-                     el.id as educational_level_id,
-                     el.code as educational_level,
-                     os.id as ods4_scale_id,
-                     os.code as ods4_scale
-                 FROM indicators i 
-                 LEFT JOIN indicator_pec_goals ipg ON i.id = ipg.indicator_id
-                 LEFT JOIN indicator_topics it ON i.id = it.indicator_id
-                 LEFT JOIN indicator_educational_levels iel ON i.id = iel.indicator_id
-                 LEFT JOIN indicator_ods4_scales ios ON i.id = ios.indicator_id
-                 LEFT JOIN pec_goals pg ON pg.id = ipg.pec_goal_id
-                 LEFT JOIN topics t ON t.id = it.topic_id
-                 LEFT JOIN educational_levels el ON el.id = iel.educational_level_id
-                 LEFT JOIN ods4_scales os ON os.id = ios.ods4_scale_id
-                 ${where}
-                 ORDER BY i.code, pg.goal_order, os.scale_order, el.code`;
+    const orderBy = "ORDER BY i.code, pg.goal_order, os.scale_order, el.code";
+
+    const sql = `${INDICATOR_SELECT}
+      ${INDICATOR_FROM}
+      ${where}
+      ${orderBy}`;
 
     return await db.query(sql, [], {
-      decompose: {
-        pk: "indicator_id",
-        columns: {
-          indicator_id: "id",
-          indicator_translation_key: "translation_key",
-          indicator_code: "code",
-        },
-        pec_goals: {
-          pk: "pec_goal_id",
-          columns: { pec_goal: "code" },
-        },
-        topics: {
-          pk: "topic_id",
-          columns: { topic: "translation_key" },
-        },
-        educational_levels: {
-          pk: "educational_level_id",
-          columns: { educational_level: "translation_key" },
-        },
-        ods4_scales: {
-          pk: "ods4_scale_id",
-          columns: { ods4_scale: "code" },
-        },
-      },
+      decompose: INDICATOR_DECOMPOSE,
     });
+  },
+  findById: async (id) => {
+    return db.indicators.findOne({ id });
   },
   /**
    * Finds related indicators
@@ -92,35 +53,73 @@ export default {
    * @param {number} id Indicator id
    * @param {string} country Country code
    */
-  findById: async (id, country) => {
-    let response = {};
+  findFullDetailsById: async (id) => {
+    const where = `WHERE i.id = ${id}`;
+    const sql = `${INDICATOR_SELECT}
+      ${INDICATOR_FROM}
+      ${where}`;
 
-    const indicator = await db.indicators.findOne({ id: id });
-    if (!indicator) {
+    const indicator = await db.query(sql, [], {
+      decompose: INDICATOR_DECOMPOSE,
+    });
+
+    if (!indicator || indicator.length == 0) {
       return null;
     }
 
-    response.info = _.omit(indicator, "query");
-
-    const rawData = await IndicatorDataService.find(
-      _.assign(indicator.query, { ref_area: country })
-    );
+    delete indicator.query;
 
     const variations = await IndicatorVariationService.findByIndicatorId(id);
-    response.variations = _.map(variations, (v) =>
+    indicator.variations = _.map(variations, (v) =>
       _.omit(v, "indicator_id", "query")
     );
-    let data = await filterDataByVariation(variations, indicator.code, rawData);
 
-    const visualizations = await IndicatorVizualizationService.findByIndicatorId(
-      id
-    );
+    return indicator;
+  },
+};
 
-    const indexes = await IndicatorIndexService.findByIndicatorId(id);
+const INDICATOR_SELECT = `SELECT i.id as indicator_id, i.translation_key as indicator_translation_key, i.code as indicator_code,
+      pg.id as pec_goal_id,
+      pg.code as pec_goal,
+      t.id as topic_id,
+      t.translation_key as topic,
+      el.id as educational_level_id,
+      el.code as educational_level,
+      os.id as ods4_scale_id,
+      os.code as ods4_scale`;
 
-    response.data = await filterData(data, visualizations, indexes);
+const INDICATOR_FROM = `FROM indicators i
+   LEFT JOIN indicator_pec_goals ipg ON i.id = ipg.indicator_id
+   LEFT JOIN indicator_topics it ON i.id = it.indicator_id
+   LEFT JOIN indicator_educational_levels iel ON i.id = iel.indicator_id
+   LEFT JOIN indicator_ods4_scales ios ON i.id = ios.indicator_id
+   LEFT JOIN pec_goals pg ON pg.id = ipg.pec_goal_id
+   LEFT JOIN topics t ON t.id = it.topic_id
+   LEFT JOIN educational_levels el ON el.id = iel.educational_level_id
+   LEFT JOIN ods4_scales os ON os.id = ios.ods4_scale_id`;
 
-    return response;
+const INDICATOR_DECOMPOSE = {
+  pk: "indicator_id",
+  columns: {
+    indicator_id: "id",
+    indicator_translation_key: "translation_key",
+    indicator_code: "code",
+  },
+  pec_goals: {
+    pk: "pec_goal_id",
+    columns: { pec_goal: "code" },
+  },
+  topics: {
+    pk: "topic_id",
+    columns: { topic: "translation_key" },
+  },
+  educational_levels: {
+    pk: "educational_level_id",
+    columns: { educational_level: "translation_key" },
+  },
+  ods4_scales: {
+    pk: "ods4_scale_id",
+    columns: { ods4_scale: "code" },
   },
 };
 
@@ -149,108 +148,4 @@ const getSearchWhere = (pecGoal, topic, educationalLevel) => {
   }
 
   return whereClauses.length > 0 ? `WHERE ${whereClauses.join(" AND ")}` : "";
-};
-
-/**
- * Filter data by the indicator variations
- *
- * @param {array} variations Indicator variations
- * @param {string} indicatorCode Indicator code
- * @param {array} rawData Raw data from the database
- */
-const filterDataByVariation = async (variations, indicatorCode, rawData) => {
-  let data = {};
-
-  if (variations.length > 0) {
-    variations.forEach(async (variation) => {
-      data[indicatorCode + "." + variation.code] = _.filter(
-        rawData,
-        variation.query
-      );
-    });
-  } else {
-    data[indicatorCode] = rawData;
-  }
-
-  return data;
-};
-
-/**
- * Filters the data by every possible index or visualization
- *
- * @param {array} data The data separated by indicator variation
- * @param {array} visualizations The list of possible visualizations
- * @param {array} indexes The list of possible indexes
- *
- * @returns {object} Returns the data filterd by visualizations and views
- */
-const filterData = async (data, visualizations, indexes) => {
-  let dataByViews = {};
-
-  Object.keys(data).forEach(async (code) => {
-    dataByViews[code] = {};
-    dataByViews[code].visualizations = await filterDataByView(
-      visualizations,
-      data[code]
-    );
-    dataByViews[code].indexes = await filterDataByView(
-      _.map(indexes, (i) => _.assign(i, { label: "unit_measure" })),
-      data[code]
-    );
-  });
-
-  return dataByViews;
-};
-
-/**
- * Filter data by view
- *
- * @param {array} viewList It could be a visualization or an index list
- * @param {array} data Indicator data
- *
- * @returns {object} Returns complete data by view
- */
-const filterDataByView = async (viewList, data) => {
-  let dataByView = {};
-
-  viewList.forEach(async (view) => {
-    const filteredData = FilterUtils.filter(data, view.query);
-
-    dataByView[view.code] = await filterHistoricalData(
-      _.map(filteredData, (item) => {
-        return _.assign(
-          { label: `${view.label_root || "indexes"}.${item[view.label]}` },
-          _.omit(
-            item,
-            "unit_measure",
-            "edu_level",
-            "sex",
-            "wealth_quintile",
-            "location"
-          )
-        );
-      })
-    );
-  });
-
-  return dataByView;
-};
-
-/**
- * Filter data by time period
- *
- * @param {array} data Array of data
- *
- * @returns {object} Returns historical data and latest year data
- */
-const filterHistoricalData = async (data) => {
-  let historicalData = {};
-  historicalData["historical"] = data;
-
-  const max = _.maxBy(data, "time_period");
-  historicalData["latest"] = data.length
-    ? _.filter(data, { time_period: max.time_period })
-    : data;
-
-  return historicalData;
 };

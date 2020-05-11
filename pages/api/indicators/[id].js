@@ -4,10 +4,7 @@ import IndicatorService from "../../../services/Indicator.service";
 const handler = nextConnect();
 
 handler.get(async (req, res) => {
-  let indicator = await IndicatorService.findById(
-    req.query.id,
-    req.query.country
-  );
+  let indicator = await IndicatorService.findFullDetailsById(req.query.id);
 
   if (indicator) {
     res.status(200).json(indicator);
