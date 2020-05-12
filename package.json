@@ -9,7 +9,6 @@
     "dev": "node server.js",
     "build": "db-migrate up && next build",
     "start": "next start",
-    "heroku-postbuild": "npm run build",
     "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
@@ -47,5 +46,6 @@
   },
   "lint-staged": {
     "*.js": [ "node_modules/.bin/eslint" ]
-  }
+  },
+  "cacheDirectories": [".next/cache"]
 }
