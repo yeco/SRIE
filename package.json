@@ -1,6 +1,9 @@
 {
   "name": "srie",
   "version": "0.1.0",
+  "engines": {
+    "node": "13.9.0"
+  },
   "private": true,
   "scripts": {
     "dev": "node server.js",
