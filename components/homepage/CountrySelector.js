@@ -21,11 +21,3 @@ export default function CountrySelector(props) {
   </div>
 )}
 
-      {/* // background-color: #044A95; */}
-      <style jsx>{`
-        .country-selector {
-        }
-      `}</style>
-    </div>
-  )
-}

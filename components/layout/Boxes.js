@@ -91,7 +91,7 @@ import {
   rosa,
   rosa_2,
   azul5_2,
-} from "../../theme/colors";
+} from "../../styles/colors";
 const LineContainer = styled.div`
   font-weight: 400;
   display: flex;
