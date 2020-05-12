@@ -22,7 +22,7 @@ const Layout = (props) => (
       />
       <script
         src='https://kit.fontawesome.com/93f079ed62.js'
-        crossorigin='anonymous'
+        
       ></script>
     </Head>
     {/* <Header /> */}

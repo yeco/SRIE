@@ -7,7 +7,7 @@ const Footer = () => (
   <Col className="footer">
     <Container>
       <Row>
-        <Col xs={12} sm={6}>
+        <Col xs={12} sm={6} className="d-none d-sm-block">
           <p>Con el apoyo de:</p>
           <Col className="imgfooter">
             <a href="#" target="_blank"> 
@@ -36,7 +36,7 @@ const Footer = () => (
       
     </Container>
   </Col>
-  <Col className="copyright">
+  <Col className="copyright p-0">
     <p className="text-white text-center w-100 font-italic"><small> Derechos reservados</small></p>
   </Col>
   <style type="text/css">{`

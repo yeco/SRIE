@@ -13,7 +13,7 @@ const Home = props => (
   <>
     <div className="home">
       <Header path={props.pa}/>
-        <Row className="justify-content-md-center px-sm-0">
+        <Row className="justify-content-md-center mxs-0">
           <div className="col-sm-8 px-0">
             <InfoSlider />
             <CountrySelector countries={props.countries} />
@@ -25,6 +25,20 @@ const Home = props => (
         <BannerOds/>
       </div>
     </div>
+    <style type='text/css'>{`
+      .fa-times:before, .fa-bars:before {
+        color: white;
+      }
+      .navbar-light .navbar-toggler {
+        color: rgba(0,0,0,.5);
+        border: none;
+        margin: 9px auto 0 auto;
+    }
+    .header {
+      border-bottom: 2px solid #fff;
+      padding-top: 10px;
+    }
+    `}</style>
     <style jsx>{`
     
     `}</style>
