@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "node server.js",
-    "build": "next build",
+    "build": "db-migrate up && next build",
     "start": "next start",
+    "heroku-postbuild": "npm run build",
     "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
