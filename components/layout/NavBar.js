@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { nav } from './../../pages/api/navbar'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown,Col,Row } from 'react-bootstrap'
 import LinkChild from '../layout/LinkChild'
+import LanguageSelector from "./LanguageSelector";
 
 export default class NavBar extends React.Component {
   constructor(props) {
@@ -24,6 +25,8 @@ export default class NavBar extends React.Component {
 
     return (
       <>
+        <Row>
+        <Col>
         <Navbar expand='md'>
           <Navbar.Toggle
             aria-hidden='true'
@@ -60,6 +63,11 @@ export default class NavBar extends React.Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        </Col>
+        <Col>
+          <LanguageSelector/>
+        </Col>
+        </Row>
         <style type='text/css'>{`
             
             .nav-link{

@@ -40,8 +40,8 @@ import ConclusionIcon from '../../public/img/home/icon_conclusion_indicador.svg'
 import EntornoIcon from '../../public/img/home/icon_entorno_indicador.svg'
 import MetasIcon from '../../public/img/home/icon_metas_indicador.svg'
 
-import CrFlag from '../../public/img/home/bandera-costa_rica.png'
-import FlagNameComponent from '../../components/layout/FlagNameComponent'
+// import CrFlag from '../../public/img/home/bandera-costa_rica.png'
+// import FlagNameComponent from '../../components/layout/FlagNameComponent'
 import Title from '../../components/layout/Title'
 
 import { txt, azul1, azul2, verde } from '../../styles/colors'

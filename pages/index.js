@@ -4,19 +4,22 @@ import CountrySelector from "../components/homepage/CountrySelector";
 import Header from "./../components/layout/Header";
 import BannerOds from "./../components/homepage/BannerOds"
 import { Container,Col,Row } from "react-bootstrap";
+import { withTranslation } from "../i18n";
+import PropTypes from "prop-types";
 
 function fetcher(url) {
   return fetch(url).then(r => r.json());
 }
 
-const Home = props => (
+const Home = ({ countries, t, pa }) => (
   <>
     <div className="home">
-      <Header path={props.pa}/>
+    <h4>{t("homepage.title")}</h4>
+      <Header path={pa}/>
         <Row className="justify-content-md-center mxs-0">
           <div className="col-sm-8 px-0">
             <InfoSlider />
-            <CountrySelector countries={props.countries} />
+            <CountrySelector countries={countries} />
           </div>
         </Row>
     </div>
@@ -51,9 +54,14 @@ Home.getInitialProps = async function({pathname}) {
   const countries = await res.json();
 
   return {
+    namespacesRequired: ["homepage"],
     countries: countries,
     pa: pa
   };
 };
 
-export default Home;
+Home.propTypes = {
+  t: PropTypes.func.isRequired
+};
+
+export default withTranslation("homepage")(Home);

@@ -3,6 +3,7 @@ import NavBar from "../layout/NavBar";
 // import Navigation from "../layout/Navigation";
 import Logo from "../layout/Logo";
 import { Container, Row, Col } from "react-bootstrap";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = props => (
   <div className="header">
@@ -11,9 +12,12 @@ const Header = props => (
         <Col xs={{ order: 1 }} sm={3} >
           <Logo path={props.path} />
         </Col>
-        <Col xs={3} sm={{order:1,span:'auto'}} className="navbox">
+        <Col xs={3} sm={{order:1,span:9}} className="navbox">
           <NavBar path={props.path}/>
         </Col>
+        {/* <Col sm={{order:2,span:'auto'}} >
+          <LanguageSelector />
+        </Col> */}
       </Row>
     </Container>
 
