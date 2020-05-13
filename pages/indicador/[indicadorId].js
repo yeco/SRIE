@@ -1,22 +1,23 @@
 import Link from 'next/link'
-import Header from '../components/layout/Header'
+import { useRouter } from 'next/router'
+import Header from '../../components/layout/Header'
 import { Container, Row, Breadcrumb } from 'react-bootstrap'
 
 import {
   ButtonNav,
   ButtonNavWithIcon,
   ButtonNavIndicadores,
-} from '../components/layout/Button'
-import CrFlag from '../public/img/home/bandera-costa_rica.png'
-import FlagNameComponent from '../components/layout/FlagNameComponent'
+} from '../../components/layout/Button'
+import CrFlag from '../../public/img/home/bandera-costa_rica.png'
+import FlagNameComponent from '../../components/layout/FlagNameComponent'
 import IndicadorComponent, {
   Tag,
-} from '../components/layout/IndicadorComponent'
-import NavSecundaryCountries from '../components/layout/NavSecundaryCountries'
-import Title from '../components/layout/Title'
-import PecIcon from '../public/img/home/icon_pec_indicadores.svg'
+} from '../../components/layout/IndicadorComponent'
+import NavSecundaryCountries from '../../components/layout/NavSecundaryCountries'
+import Title from '../../components/layout/Title'
+import PecIcon from '../../public/img/home/icon_pec_indicadores.svg'
 import styled from 'styled-components'
-import { txt, azul1 } from '../styles/colors'
+import { txt, azul1 } from '../../styles/colors'
 
 const IconImg = styled.img`
   width: 18px;
@@ -28,18 +29,22 @@ const Divider = styled.span`
   border-bottom: 1px solid ${txt};
   margin-top: 20px;
 `
-export default class extends React.Component {
-  static async getInitialProps({ pathname }) {
-    let pa = pathname
-    return { pa }
-  }
+export default function Indicador() {
+  // static async getInitialProps({ pathname }) {
+  //   let pa = pathname
+  //   return { pa }
+  // }
+  
 
-  render() {
-    const { pa } = this.props
+  // render() {
+    const router = useRouter()
+    const id = router.query.indicadorId
+    
     const array = [1, 2, 3, 4, 5]
+    
     return (
       <>
-        <Header path={pa} />
+        <Header />
         <NavSecundaryCountries />
         <Container className='p-0'>
           <Breadcrumb className='bg-white-ol'>
@@ -55,7 +60,7 @@ export default class extends React.Component {
         <Container>
           <Row className='d-flex justify-content-betweent mt-5 mb-5'>
             <div className='col-lg-4 '>
-            {pa}
+            {id}
               <FlagNameComponent icon={CrFlag}>Costa Rica</FlagNameComponent>
             </div>
             <Row className='col-lg-8 d-flex justify-content-end p-0'>
@@ -190,4 +195,4 @@ export default class extends React.Component {
       </>
     )
   }
-}
+// }

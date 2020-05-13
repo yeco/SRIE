@@ -144,7 +144,11 @@ export default function Country() {
 
             <div className='col-lg-3 pr-0'>
               {/* <Link href={`${router.query.countryId}`} as={`/indicadores`}> */}
-              <Link href='/indicadores' as={`${router.query.countryId}`}>
+              <Link 
+                href='/indicador/[indicadorId]'
+                as={`/indicador/${router.query.countryId}`}
+                key={`ssssssssssss`}
+              >
                 <ButtonNav azul>INDICADORES EDUCATIVOS</ButtonNav>
               </Link>
             </div>
