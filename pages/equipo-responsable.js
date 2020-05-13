@@ -13,7 +13,7 @@ import IndicadorComponent from '../components/layout/IndicadorComponent'
 import NavSecundaryCountries from '../components/layout/NavSecundaryCountries'
 import Title from '../components/layout/Title'
 import styled from 'styled-components'
-import { txt, bordes, azul4 } from '../theme/colors'
+import { txt, bordes, azul4 } from '../styles/colors'
 
 const DirectoryContainer = styled.div`
   display: flex;

@@ -16,7 +16,7 @@ import NavSecundaryCountries from '../components/layout/NavSecundaryCountries'
 import Title from '../components/layout/Title'
 import PecIcon from '../public/img/home/icon_pec_indicadores.svg'
 import styled from 'styled-components'
-import { txt, azul1 } from '../theme/colors'
+import { txt, azul1 } from '../styles/colors'
 
 const IconImg = styled.img`
   width: 18px;

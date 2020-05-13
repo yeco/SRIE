@@ -8,7 +8,7 @@ import {
   rojo,
   bordes,
   bck_banderas,
-} from '../../theme/colors'
+} from '../../styles/colors'
 import arrow from '../../public/img/home/arrow_indicadores.svg'
 
 const Container = styled.div`
