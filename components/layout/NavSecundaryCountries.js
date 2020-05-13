@@ -32,7 +32,7 @@ export default class NavSecundaryCountries extends React.Component {
                   return (
                     <Link
                       href='/country/[countryId]'
-                      as={`${country.countryId}`}
+                      as={`/country/${country.countryId}`}
                       key={country.countryId}
                     >
                       <a
