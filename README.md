@@ -15,7 +15,7 @@
 
 ## Project Structure
 
-```
+```bash
 srie/
 ├── components/
 │   ├── layout

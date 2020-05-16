@@ -1,5 +1,6 @@
-import nextConnect from "next-connect";
-import IndicatorService from "../../../services/Indicator.service";
+/* eslint camelcase: "off" */
+import nextConnect from 'next-connect';
+import IndicatorService from '../../../services/Indicator.service';
 
 const handler = nextConnect();
 
@@ -8,7 +9,7 @@ handler.get(async (req, res) => {
   const indicators = await IndicatorService.search(
     pec_goal,
     topic,
-    educative_level
+    educative_level,
   );
   res.status(200).json(indicators);
 });

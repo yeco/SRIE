@@ -23,6 +23,7 @@
     "next-i18next": "^4.2.1",
     "react": "16.13.0",
     "react-dom": "16.13.0",
+    "styled-jsx": "^3.3.0",
     "swr": "^0.1.18"
   },
   "devDependencies": {
@@ -42,6 +43,8 @@
     }
   },
   "lint-staged": {
-    "*.js": [ "node_modules/.bin/eslint" ]
+    "*.js": [
+      "node_modules/.bin/eslint"
+    ]
   }
 }
