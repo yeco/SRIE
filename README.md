@@ -61,13 +61,34 @@ Second, initialize git flow, use all the default values:
 git flow init
 ```
 
-Third, get the database environment up, by running the following command
+Third, download dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Fourth, update the environment variables using your .env file, it should like this:
+
+```bash
+DB_DRIVER=pg
+DB_HOST=<host>
+DB_NAME=<db_name>
+DB_USER=<db_user>
+DB_PASS=<db_pass>
+DB_PORT=<db_port>
+
+API_URL=http://localhost:3000
+```
+
+Fifth, get the database environment up, by running the following command
 
 ```bash
 docker-compose up
 ```
 
-Fourth, run the development server:
+Sixth, run the development server:
 
 ```bash
 npm run dev
